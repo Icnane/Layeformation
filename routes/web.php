@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UtilisaterController;
+use App\Http\Controllers\UsersController;
 use App\Http\Controllers\AuthController;
 
 /*
@@ -42,4 +42,4 @@ Route::get('/contact', function () {
 })->name('contact');
 
 // Routes Utilisater
-Route::get('/utilisater', [UtilisaterController::class, 'showCreateForm'])->name('utilisater.create.form');
+Route::get('/login', [UsersController::class, 'showCreateForm'])->name('utilisater.create.form');
