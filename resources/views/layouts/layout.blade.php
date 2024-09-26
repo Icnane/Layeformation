@@ -44,7 +44,7 @@
                 <h1>LAYFORMATION</h1>
                 <div class="user-info">
                     <div class="user-avatar">H</div>
-                    <span>Haidara</span>
+                    <!-- <span>Haidara</span> -->
                 </div>
             </div>
 
