@@ -1,4 +1,4 @@
-<!doctype html>
+{{-- <!doctype html>
 <html class="no-js" lang="en">
 
 @include('partials.head')
@@ -147,4 +147,4 @@
 
     @include('components.footer')
 </body>
-</html>
+</html> --}}
