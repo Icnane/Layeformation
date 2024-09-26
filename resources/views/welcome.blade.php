@@ -7,7 +7,7 @@
 
 <!-- <body> -->
 	<!--header-top start -->
-	@include('partials.header')
+	@include('components.header')
     <!-- </header> -->
 	
 	<!--/.list-topics-->

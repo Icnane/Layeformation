@@ -79,6 +79,6 @@
     </main>
 
 
-    @include('partials.footer')
+    @include('components.footer')
  <!-- </body> -->
 	</html>

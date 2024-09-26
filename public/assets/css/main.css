@@ -1,0 +1,331 @@
+/* Global button styles */
+.btn {
+    display: inline-block;
+    padding: 8px 12px;
+    margin-right: 5px;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    border: none;
+    color: #211e1e;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+/* Specific button styles */
+.btn.b1 {
+    background-color: #3498db;
+}
+
+.btn.b2 {
+    background-color: #2ecc71;
+}
+
+.btn.b3 {
+    background-color: #e74c3c;
+}
+
+/* Button states */
+.btn:active {
+    transform: scale(0.95);
+}
+
+/* Button within forms */
+button.btn {
+    border: none;
+    padding: 8px 12px;
+    background-color: inherit;
+}
+
+button.btn:hover {
+    opacity: 0.8;
+}
+
+/* Ensure the form doesn't break line layout */
+.action-form {
+    display: inline;
+}
+
+
+/* styles.css */
+.card1 {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.btn-success {
+    background: #e74c3c;
+    background-color: #26e954;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+/* Partie show */
+
+.card3 {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.formation-details {
+    margin-top: 20px;
+}
+
+.detail-group {
+    margin-bottom: 15px;
+}
+
+.detail-group label {
+    font-weight: bold;
+    display: inline-block;
+    width: 200px;
+}
+
+.detail-group span {
+    font-size: 1.1em;
+    color: #333;
+}
+
+.action-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.return-button {
+    margin-top: 20px;
+}
+
+.return-button .btn {
+    background-color: #6c757d;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    color: white;
+    text-decoration: none;
+}
+
+.return-button .btn:hover {
+    background-color: #5a6268;
+}
+
+.btn {
+    padding: 10px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: white;
+}
+.btn5 {
+    width: 100px;
+    height: 2.5rem;
+    text-align: center; /* Centre le texte horizontalement */
+    display: flex; /* Utilise Flexbox pour le centrage */
+    align-items: center; /* Centre le texte verticalement */
+    justify-content: center; /* Centre le texte horizontalement */
+    border-radius: 4px;
+    text-decoration: none;
+    color: white;
+    border: none;
+    background-color: #3498db; /* Ajoute une couleur de fond si nécessaire */
+}
+.btn6 {
+    width: 100px;
+    height: 2.5rem;
+    text-align: center; /* Centre le texte horizontalement */
+    display: flex; /* Utilise Flexbox pour le centrage */
+    align-items: center; /* Centre le texte verticalement */
+    justify-content: center; /* Centre le texte horizontalement */
+    border-radius: 4px;
+    text-decoration: none;
+    color: white;
+    border: none;
+    background-color: #dc3545;
+    cursor: pointer; /* Ajoute une couleur de fond si nécessaire */
+}
+
+.btn-success1 {
+    /* padding: 0px 15px; */
+    background-color: #28a745;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-success1:hover {
+    background-color: #218838;
+}
+
+
+
+.btn-dangersup:hover {
+    background-color: #c82333;
+}
+
+.delete-form {
+    display: inline-block;
+}
+.bouton1{
+    display: flex;
+    gap: 2rem;
+}
+/* Pagination container */
+.pagination {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    list-style-type: none; /* Supprime les puces de la liste */
+    padding: 0; /* Supprime le padding par défaut */
+}
+
+.pagination .page-item {
+    margin: 0 5px; /* Espacement entre les éléments */
+}
+
+.pagination .page-item .page-link {
+    color: #007bff; /* Couleur des liens */
+    border: 1px solid #dee2e6; /* Bordure légère autour des liens */
+    padding: 10px 15px; /* Taille des liens */
+    border-radius: 5px; /* Coins arrondis */
+    text-decoration: none; /* Enlever la sous-ligne */
+    transition: background-color 0.3s ease; /* Effet lors du survol */
+}
+
+/* Style pour l'élément actif */
+.pagination .page-item.active .page-link {
+    background-color: #007bff; /* Couleur de fond pour l'élément actif */
+    border-color: #007bff; /* Bordure de l'élément actif */
+    color: white; /* Couleur du texte */
+}
+
+/* Style pour les liens survolés */
+.pagination .page-item .page-link:hover {
+    background-color: #0056b3; /* Couleur de fond au survol */
+    color: white; /* Couleur du texte au survol */
+}
+
+/* Désactiver les liens non cliquables */
+.pagination .page-item.disabled .page-link {
+    color: #6c757d; /* Couleur de texte pour les éléments désactivés */
+    background-color: #f8f9fa; /* Couleur de fond pour les éléments désactivés */
+    border-color: #dee2e6; /* Bordure des éléments désactivés */
+}
+/* Conteneur parent pour le bouton et la barre de recherche */
+.createbtn-search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Style du bouton de création */
+.createbtn a {
+    padding: 10px 20px;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+/* Barre de recherche */
+form.mb-3 {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    margin-left: 20px; /* Espace entre le bouton et la barre de recherche */
+}
+
+/* Input de recherche */
+form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-right: 10px; /* Espace entre l'input et le bouton */
+    outline: none;
+}
+
+/* Bouton de recherche */
+form button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Responsivité */
+@media (max-width: 768px) {
+    .createbtn-search {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    form.mb-3 {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}

@@ -1,0 +1,82 @@
+.formation-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.formation {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 15px;
+    padding: 30px;
+    width: 350px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    height: 350px; /* Ajusté pour l'espace du bouton et de la promo */
+}
+
+.formation h3, .formation p, .formation .details{
+    padding: 5px;
+    color: #333;
+    transition: color 0.3s ease;
+}
+.formation .promo {
+    color: #ff4500; /* Couleur attirante */
+    transition: color 0.3s ease;
+}
+
+.formation:hover h3,
+.formation:hover p,
+.formation:hover .details,
+.formation:hover .promo {
+    background-color: #ff545a;
+    color: #fff;
+    padding: -3px;
+}
+.promo {
+    font-size: 1em;
+    color: #ff4500; /* Couleur attirante */
+    margin-bottom: 10px;
+    white-space: nowrap;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    animation: slide-left 10s linear infinite;
+    width: 100%;
+    background-color: #fff;
+    padding: 5px 0;
+}
+
+@keyframes slide-left {
+    0% {
+        left: 100%;
+    }
+    100% {
+        left: -100%;
+    }
+}
+.inscription-btn {
+    background-color: orange;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.inscription-btn:hover {
+    background-color: #ff7f00;
+}
+.formation:hover {
+    background-color: #ff545a;
+    color: #fff;
+}

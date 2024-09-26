@@ -7,11 +7,11 @@
 
 <!-- <body> -->
 	<!--header-top start -->
-	@include('partials.header')
+	@include('components.header')
     <!-- </header> -->
 	<!--/.list-topics-->
 	<!--list-topics end-->
 
-    @include('partials.footer')
+    @include('components.footer')
  <!-- </body> -->
 	</html>

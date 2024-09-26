@@ -737,7 +737,7 @@
 
 	<!--footer start-->
 	<!--/.footer-->
-    @include('partials.footer')
+    @include('components.footer')
 	<!--footer end-->
 
 	<!-- Include all js compiled plugins (below), or include individual files as needed -->

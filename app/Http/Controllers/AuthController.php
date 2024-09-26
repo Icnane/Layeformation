@@ -21,9 +21,9 @@ class AuthController extends Controller
         $user = User::where('email', $request->email)->first();
 
         if ($user && Hash::check($request->password, $user->password)) {
-            // Connexion réussie, redirection vers la page d'accueil
+            // Connexion réussie, redirection vers la page de bienvenue
             auth()->login($user);
-            return redirect()->route('home');  // Remplace 'home' par ta route d'accueil
+            return redirect()->route('welcome');  // Redirection vers la page welcome après connexion réussie
         } else {
             // Échec de la connexion, retour avec un message d'erreur
             return back()->withErrors(['email' => 'Identifiants incorrects.']);
@@ -38,7 +38,6 @@ class AuthController extends Controller
             'nom' => 'required|string|max:255',
             'prenom' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
-            'sexe' => 'required|string',
             'password' => 'required|string|confirmed|min:6',
         ]);
 
@@ -47,14 +46,10 @@ class AuthController extends Controller
             'nom' => $request->nom,
             'prenom' => $request->prenom,
             'email' => $request->email,
-            'sexe' => $request->sexe,
             'password' => Hash::make($request->password),
         ]);
 
-        // Connexion automatique après inscription
-        auth()->login($user);
-
-        // Redirection vers la page d'accueil
-        return redirect()->route('home');  // Remplace 'home' par ta route d'accueil
+        // Redirection vers la page de connexion avec un message de succès
+        return redirect()->route('login')->with('success', 'Compte créé avec succès, veuillez vous connecter.');
     }
 }

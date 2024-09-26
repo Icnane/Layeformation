@@ -9,9 +9,9 @@
 	<!--header-top start -->
     
 	@include('partials.sidbar')
-<title>Formations en Informatique</title>
-                
-             @vite('resources/css/styles.css')
+    @vite('resources/css/style.css')
+          <title>Formations en Informatique</title>
+          @vite('resources/css/styles.css')
             <body>
                 <div class="formation-container">
                     <div class="formation">
@@ -48,8 +48,8 @@
                         <p> Préparer les ambulanciers à intervenir lors de situations d’urgence et à assurer le transport sécurisé des patients</p>
                         <div class="details">Coût: 20F | 12h par semaine</div>
                         <a href="{{ route('inscription') }}">
-        <button class="inscription-btn">S'inscrire</button>
-    </a>
+         <button class="inscription-btn">S'inscrire</button>
+      </a>
                     </div>
                     <div class="formation">
                         <div class="promo">Promo: Néant</div>
@@ -72,7 +72,7 @@
             </body>
         
 
-            @include('partials.footer')
+            @include('components.footer')
  <!-- </body> -->
 	</html>
             

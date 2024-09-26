@@ -14,6 +14,7 @@
     <div class="alert alert-success">
         {{ session('success') }}
     </div>
+    @vite('resources/css/styles.css')
     @endif
     <h1 style="text-align: center;padding: 30px;">Les domaine de formations</h1>
         <section class="top-area" style="padding-top: 150px;">
@@ -29,7 +30,7 @@
                                             style="height: 50px; margin-right: 10px;">
                                     </div>
                                     <h2><a href="#">Informatique et developpement Web</a></h2>
-                                    <i><a href="informatique.html"><input type="button" value="Voir plus..."></a></i>
+                                    <i><a href="{{ route('coursinform') }}"><input type="button" value="Voir plus..."></a></i>
                                 </div>
                             </li>
                             <li>
@@ -39,7 +40,7 @@
                                             alt="" style="height: 50px; margin-right: 10px;">
                                     </div>
                                     <h2><a href="#">Santé et services sociaux</a></h2>
-                                    <i><a href="santé.html"><input type="button" value="Voir plus..."></a></i>
+                                    <i><a href="{{ route('listecours') }}"><input type="button" value="Voir plus..."></a></i>
                                 </div>
                             </li>
                             <li>
@@ -49,7 +50,7 @@
                                             style="height: 50px; margin-right: 10px;">
                                     </div>
                                     <h2><a href="#">Energie et environnement</a></h2>
-                                    <i><a href="energie.html"><input type="button" value="Voir plus..."></a></i>
+                                    <i><a href="{{ route('energi') }}"><input type="button" value="Voir plus..."></a></i>
                                 </div>
                             </li>
                             <li>
@@ -59,7 +60,7 @@
                                             style="height: 50px; margin-right: 10px;">
                                     </div>
                                     <h2><a href="#">Administration des affaires</a></h2>
-                                    <i><a href="admistration.html"><input type="button" value="Voir plus..."></a></i>
+                                    <i><a href="{{ route('administ') }}"><input type="button" value="Voir plus..."></a></i>
                                 </div>
                             </li>
                             <li>
@@ -69,7 +70,7 @@
                                             style="height: 50px; margin-right: 10px;">
                                     </div>
                                     <h2><a href="#">Formation artistique</a></h2>
-                                    <i><a href="artistique.html"><input type="button" value="Voir plus..."></a></i>
+                                    <i><a href="{{ route('art') }}"><input type="button" value="Voir plus..."></a></i>
                                 </div>
                             </li>
                             <li>
@@ -79,7 +80,7 @@
                                             style="height: 50px; margin-right: 10px;">
                                     </div>
                                     <h2><a href="#">Formation logistique</a></h2>
-                                    <i><a href="logistique.html"><input type="button" value="Voir plus..."></a></i>
+                                    <i><a href="{{ route('log') }}"><input type="button" value="Voir plus..."></a></i>
                                 </div>
                             </li>
                             <li>
@@ -89,7 +90,7 @@
                                             style="height: 50px; margin-right: 10px;">
                                     </div>
                                     <h2><a href="#">Langue etrangère</a></h2>
-                                    <i><a href="langue.html"><input type="button" value="Voir plus..."></a></i>
+                                    <i><a href="{{ route('listecours') }}"><input type="button" value="Voir plus..."></a></i>
                                 </div>
                             </li>
                             <li>
@@ -99,7 +100,7 @@
                                             alt="" style="height: 50px; margin-right: 10px;">
                                     </div>
                                     <h2><a href="#">Marketiong digital</a></h2>
-                                    <i><a href="marketing.html"><input type="button" value="Voir plus..."></a></i>
+                                    <i><a href="{{ route('listecours') }}"><input type="button" value="Voir plus..."></a></i>
                                 </div>
                             </li>
                             <li>
@@ -109,7 +110,7 @@
                                             alt="" style="height: 50px; margin-right: 10px;">
                                     </div>
                                     <h2><a href="#">Autes...</a></h2>
-                                    <i><a href="voirplus.html"><input type="button" value="Voir plus..."></a></i>
+                                    <i><a href="{{ route('listecours') }}"><input type="button" value="Voir plus..."></a></i>
                                 </div>
                             </li>
                         </ul>
@@ -118,6 +119,6 @@
             </section>   
     <!-- </body> -->
 
-    @include('partials.footer')
+    @include('components.footer')
  <!-- </body> -->
 	</html>

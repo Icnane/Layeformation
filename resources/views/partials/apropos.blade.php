@@ -39,6 +39,6 @@
     </div>
 
 
-    @include('partials.footer')
+    @include('components.footer')
  <!-- </body> -->
 	</html>
