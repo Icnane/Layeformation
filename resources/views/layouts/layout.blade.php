@@ -22,9 +22,9 @@
                 <a href="{{ route('formations.index') }}" style="color: inherit; text-decoration: none;">Cours</a>
             </div>
 
-             {{-- <div class="nav-item" data-target="students">
-                <a href="{{ route('students.index') }}" style="color: inherit; text-decoration: none;">Étudiants</a>
-            </div> --}}
+             <div class="nav-item" data-target="students">
+                <a href="{{ route('etudiants.index') }}" style="color: inherit; text-decoration: none;">Étudiants</a>
+            </div>
 
             <div class="nav-item" data-target="trainers">
                 <a href="{{ route('formateurs.index') }}" style="color: inherit; text-decoration: none;">Formateurs</a>
