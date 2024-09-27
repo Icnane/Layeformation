@@ -5,12 +5,12 @@
     <div class="card-header">Liste des Formateurs</div>
     <div class="createbtn-search">
         <div class="createbtn">
-            <a class="btn btn-success" href="{{ route('formateurs.create') }}">Créer un nouveau formateur</a>
+            <a class="btn btn-success" href="{{ route('formateurs.create') }}">Créer un nouvel étudiant</a>
         </div>
 
         <!-- Barre de recherche -->
-        <form action="{{ route('formateurs.index') }}" method="GET" class="mb-3">
-            <input type="text" name="search" placeholder="Rechercher un formateur" value="{{ request()->query('search') }}" class="form-control">
+        <form action="{{ route('formateurs.index') }}" method="GET" class="recherche">
+            <input type="text" name="search" placeholder="Rechercher un étudiant" value="{{ request()->query('search') }}" class="form-control">
             <button type="submit" class="btn btn-primary">Rechercher</button>
         </form>
     </div>

@@ -9,7 +9,7 @@
         </div>
 
         <!-- Barre de recherche -->
-        <form action="{{ route('etudiants.index') }}" method="GET" class="mb-3">
+        <form action="{{ route('etudiants.index') }}" method="GET" class="recherche">
             <input type="text" name="search" placeholder="Rechercher un étudiant" value="{{ request()->query('search') }}" class="form-control">
             <button type="submit" class="btn btn-primary">Rechercher</button>
         </form>
@@ -49,9 +49,15 @@
                     <td>{{ $etudiant->mode }}</td>
                     <td>{{ $etudiant->ville }}</td>
                     <td>
-                        <form action="{{ route('etudiants.destroy', $etudiant->id) }}" method="POST" class="action-form">
-                            <a class="btn b1" href="{{ route('etudiants.show', $etudiant->id) }}">Afficher</a>
-                            <a class="btn b2" href="{{ route('etudiants.edit', $etudiant->id) }}">Modifier</a>
+                        <form action="{{ route('etudiants.destroy', $etudiant->id) }}" method="POST" class="action-form boutonms">
+                            <a class="btn b1" href="{{ route('etudiants.show', $etudiant->id) }}">
+                                Afficher
+                            </a>
+
+                            <a class="btn b2" href="{{ route('etudiants.edit', $etudiant->id) }}">
+                                Modifier
+                            </a>
+
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn b3">Supprimer</button>
@@ -68,5 +74,6 @@
     <div class="d-flex justify-content-center">
         {{ $etudiants->links() }}
     </div>
+</div>
 </div>
 @endsection

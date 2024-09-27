@@ -13,8 +13,7 @@ return new class extends Migration
             $table->string('nom');
             $table->string('prenom');
             $table->string('email')->unique();
-            $table->string('tel'); // Numéro de téléphone comme string pour éviter les erreurs de format
-            $table->enum('sexe', ['homme', 'femme']);
+            $table->enum('sexe', ['M', 'F']);
             $table->integer('age');
             $table->string('formation');
             $table->string('mode'); // En ligne ou présentiel

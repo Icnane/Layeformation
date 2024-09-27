@@ -5,15 +5,14 @@
     <div class="card-header">Cours les plus populaires</div>
     <div class="createbtn-search">
         <div class="createbtn">
-            <a class="btn btn-success" href="{{ route('formations.create') }}">Créer une nouvelle formation</a>
+            <a class="btn btn-success" href="{{ route('formations.create') }}">Créer un nouvel étudiant</a>
         </div>
 
         <!-- Barre de recherche -->
-        <form action="{{ route('formations.index') }}" method="GET" class="mb-3">
-            <input type="text" name="search" placeholder="Rechercher une formation" value="{{ request()->query('search') }}" class="form-control">
+        <form action="{{ route('formations.index') }}" method="GET" class="recherche">
+            <input type="text" name="search" placeholder="Rechercher un étudiant" value="{{ request()->query('search') }}" class="form-control">
             <button type="submit" class="btn btn-primary">Rechercher</button>
         </form>
-        <!-- Afficher un message si aucun résultat n'est trouvé -->
     </div>
     @if($noResults)
         <div class="alert alert-warning">Aucune formation ne correspond à votre recherche.</div>

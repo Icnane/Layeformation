@@ -19,8 +19,7 @@ class StoreEtudiantRequest extends FormRequest
             'nom' => 'required|string|max:255',
             'prenom' => 'required|string|max:255',
             'email' => ['required', 'email', Rule::unique('etudiants')->ignore($this->route('etudiant'))], // Ignorer l'étudiant actuel lors de l'édition
-            'tel' => 'required|digits_between:8,15',
-            'sexe' => 'required|in:homme,femme',
+            'sexe' => 'required|in:M,F',
             'age' => 'required|integer|min:16|max:100',
             'formation' => 'required|string',
             'mode' => 'required|string|in:en-ligne,presentiel',

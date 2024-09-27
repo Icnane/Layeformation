@@ -21,7 +21,6 @@ class EtudiantController extends Controller
             $etudiants = Etudiant::where('nom', 'like', '%' . $search . '%')
                 ->orWhere('prenom', 'like', '%' . $search . '%')
                 ->orWhere('email', 'like', '%' . $search . '%')
-                ->orWhere('tel', 'like', '%' . $search . '%')
                 ->orWhere('id', 'like', '%' . $search . '%')
                 ->orderBy('created_at', 'desc')
                 ->paginate(5);

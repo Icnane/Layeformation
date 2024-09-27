@@ -50,8 +50,18 @@ button.btn:hover {
 .action-form {
     display: inline;
 }
-
-
+/* .card {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+} */
+.boutonms{
+    display: flex;
+    flex-direction: row;
+}
 /* styles.css */
 .card1 {
     background-color: #f9f9f9;
@@ -287,13 +297,7 @@ button.btn:hover {
     text-decoration: none;
 }
 
-/* Barre de recherche */
-form.mb-3 {
-    display: flex;
-    align-items: center;
-    flex: 1;
-    margin-left: 20px; /* Espace entre le bouton et la barre de recherche */
-}
+
 
 /* Input de recherche */
 form input[type="text"] {
@@ -324,8 +328,16 @@ form button[type="submit"] {
         align-items: stretch;
     }
 
-    form.mb-3 {
+    form.recherche {
         margin-left: 0;
         margin-top: 10px;
     }
+}
+.recherche
+{
+    display: flex;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+    gap: 1.5rem;
+    margin-top: 1rem;
 }

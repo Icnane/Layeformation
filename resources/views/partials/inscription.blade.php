@@ -25,15 +25,12 @@
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
 
-            <label for="tel">Numéro de Téléphone:</label>
-            <input type="tel" id="tel" name="tel" required pattern="[0-9]{8,15}" title="Le numéro doit comporter entre 8 et 15 chiffres">
-
             <label for="sexe">Sexe:</label>
             <div>
-                <input type="radio" id="homme" name="sexe" value="homme" required>
-                <label for="homme">Homme</label>
-                <input type="radio" id="femme" name="sexe" value="femme" required>
-                <label for="femme">Femme</label>
+                <input type="radio" id="M" name="sexe" value="M" required>
+                <label for="M">M</label>
+                <input type="radio" id="F" name="sexe" value="F" required>
+                <label for="F">Femme</label>
             </div>
 
             <label for="age">Âge:</label>
