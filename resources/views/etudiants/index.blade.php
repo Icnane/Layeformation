@@ -5,7 +5,7 @@
     <div class="card-header">Liste des Étudiants</div>
     <div class="createbtn-search">
         <div class="createbtn">
-            <a class="btn btn-success" href="{{ route('etudiants.create') }}">Créer un nouvel étudiant</a>
+            <a class="btn btn-success" href="{{ route('inscription') }}">Créer un nouvel étudiant</a>
         </div>
 
         <!-- Barre de recherche -->

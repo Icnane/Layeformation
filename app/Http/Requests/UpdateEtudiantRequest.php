@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateEtudiantRequest extends FormRequest
 {
@@ -20,10 +21,10 @@ class UpdateEtudiantRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'id' => 'required|string|exists:etudiants,id', // Assurez-vous que l'ID existe
+            'id' => 'required|string|unique:etudiants,id', // L'ID doit être unique
             'nom' => 'required|string|max:255',
             'prenom' => 'required|string|max:255',
-            'email' => 'required|email|unique:etudiants,email,' . $this->etudiant->id, // Ignorer l'email actuel
+            'email' => ['required', 'email', Rule::unique('etudiants')->ignore($this->route('etudiant'))], // Ignorer l'étudiant actuel lors de l'édition
             'tel' => 'required|digits_between:8,15',
             'sexe' => 'required|in:homme,femme',
             'age' => 'required|integer|min:16|max:100',

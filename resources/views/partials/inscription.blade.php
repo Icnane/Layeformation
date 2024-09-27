@@ -10,8 +10,11 @@
 
     <div class="form-container">
         <h2>Formulaire d'inscription d'Étudiant</h2>
-        <form action="{{ route('etudiants.store') }}" method="post">
+        <form id="student-form" action="{{ route('etudiants.store') }}" method="post">
             @csrf
+
+            <label for="id">IDENTIFIANT:</label>
+            <input type="number" id="id" name="id" min="1" required>
 
             <label for="nom">Nom Complet:</label>
             <input type="text" id="nom" name="nom" required>
@@ -23,7 +26,7 @@
             <input type="email" id="email" name="email" required>
 
             <label for="tel">Numéro de Téléphone:</label>
-            <input type="tel" id="tel" name="tel" required>
+            <input type="tel" id="tel" name="tel" required pattern="[0-9]{8,15}" title="Le numéro doit comporter entre 8 et 15 chiffres">
 
             <label for="sexe">Sexe:</label>
             <div>
@@ -106,20 +109,35 @@
                 <option value="po">Po</option>
                 <option value="banfora">Banfora</option>
                 <option value="ziniaré">Ziniaré</option>
-                <option value="leogane">Léo</option>
+                <option value="leo">Léo</option>
                 <option value="titao">Titao</option>
                 <option value="kaya">Kaya</option>
-                <option value="léo">Léo</option>
                 <option value="aribinda">Aribinda</option>
-                <option value="gourma">Gourma</option>
                 <option value="segou">Ségou</option>
-                <!-- Ajoutez d'autres villes si nécessaire -->
             </select>
 
-            <input type="submit" value="S'inscrire">
+            <button type="submit">S'inscrire</button>
         </form>
+
+        <div id="message" class="alert alert-info mt-3" style="display:none;"></div> <!-- Message d'information -->
     </div>
 
     @include('components.footer')
+
+    <script>
+    document.getElementById('student-form').addEventListener('submit', function(event) {
+        var mode = document.querySelector('input[name="mode"]:checked').value;
+
+        if (mode === 'en-ligne') {
+            // Redirige vers une autre page
+            window.location.href = "{{ route('etudiants.index') }}"; // Remplacez par votre route
+        } else if (mode === 'presentiel') {
+            // Affiche un message
+            var messageDiv = document.getElementById('message');
+            messageDiv.innerHTML = "Nous vous contacterons par email dans un délai de 24 heures.";
+            messageDiv.style.display = "block";
+        }
+    });
+    </script>
 </body>
 </html>
