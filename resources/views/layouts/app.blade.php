@@ -15,13 +15,43 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+    <style>
+        /* CSS pour la navigation */
+        .navbar-brand {
+            font-size: 1.5rem; /* Taille de la police */
+            color: black; /* Couleur du texte "LAY" */
+            cursor: default; /* Curseur par défaut */
+        }
+
+        .highlight {
+            color: red; /* Couleur du texte "FORMATION" */
+        }
+
+        .navbar {
+            padding: 1rem; /* Espacement dans la navbar */
+        }
+
+        .nav-link {
+            color: blue; /* Couleur des liens Login et Register */
+        }
+
+        .nav-link:hover {
+            text-decoration: underline; /* Soulignement au survol */
+        }
+
+        .menu-link {
+            margin-left: 20px; /* Espacement autour du lien de menu */
+        }
+    </style>
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                <a class="navbar-brand" href="#" onclick="event.preventDefault();">
+                    <img src="{{ asset('assets/images/WhatsApp_Image_2024-07-05_à_11.11.09_7c7222e6-removebg-preview.png') }}" alt="Logo" style="width: 40px; height: 40px; margin-right: 10px;"> <!-- Lien vers ton logo -->
+                    LAY<span class="highlight">FORMATION</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -30,11 +60,14 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-
+                        <!-- You can add links here if needed -->
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a href="{{ url('/') }}" class="nav-link menu-link">Revenir au menu principal</a> <!-- Lien vers la page principale -->
+                        </li>
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
