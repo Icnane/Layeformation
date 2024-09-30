@@ -35,7 +35,7 @@
                                         </a>
                                     </i>
                                 </div>
-                                <div class="formations-list">
+                                {{-- <div class="formations-list">
                                     <h3>Formations Associées:</h3>
                                     <ul>
                                         @foreach($domaine->formations as $formation)
@@ -44,7 +44,7 @@
                                             </li>
                                         @endforeach
                                     </ul>
-                                </div>
+                                </div> --}}
                             </li>
                         @endforeach
                     </ul>
