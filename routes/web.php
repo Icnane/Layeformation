@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DomaineController;
 use App\Http\Controllers\FormateurController;
 use App\Http\Controllers\FormationController;
 use App\Http\Controllers\EtudiantController;
@@ -79,3 +80,14 @@ Route::resource('etudiants', EtudiantController::class);
 
 // Route pour la page d'accueil après authentification
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Ressources de domaines
+Route::resource('domaines', DomaineController::class);
+
+// Routes pour récupérer les formations d'un domaine
+Route::get('domaines/{domaine}/formations', [DomaineController::class, 'formations'])
+    ->name('domaines.formations');
+
+// Route pour récupérer le domaine d'une formation (facultatif)
+Route::get('formations/{formation}/domaine', [FormationController::class, 'showDomaine'])
+    ->name('formations.domaine');

@@ -42,4 +42,10 @@ class Formation extends Model
      * @var array
      */
     protected $dates = ['created_at', 'updated_at'];
+
+     // Relation avec le domaine
+     public function domaine()
+     {
+         return $this->belongsTo(Domaine::class);
+     }
 }
