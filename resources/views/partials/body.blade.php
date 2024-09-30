@@ -7,488 +7,478 @@
 				<p>En savoir plus sur notre plateforme</p>
 			</div><!--/.section-header-->
 			<div class="works-content">
-				<div class="row">
-					<div class="col-md-4 col-sm-6">
-						<div class="single-how-works">
-							<div class="single-how-works-icon">
-								<i class="flaticon-lightbulb-idea"></i>
-							</div>
-							<h2><a href="#">choose <span> what to</span> do</a></h2>
-							<p>
-								Lorem ipsum dolor sit amet, consecte adipisicing elit, sed do eiusmod tempor incididunt
-								ut laboremagna aliqua.
-							</p>
-							<button class="welcome-hero-btn how-work-btn" onclick="window.location.href='#'">
-								read more
-							</button>
-						</div>
-					</div>
-					<div class="col-md-4 col-sm-6">
-						<div class="single-how-works">
-							<div class="single-how-works-icon">
-								<i class="flaticon-networking"></i>
-							</div>
-							<h2><a href="#">find <span> what you want</span></a></h2>
-							<p>
-								Lorem ipsum dolor sit amet, consecte adipisicing elit, sed do eiusmod tempor incididunt
-								ut laboremagna aliqua.
-							</p>
-							<button class="welcome-hero-btn how-work-btn" onclick="window.location.href='#'">
-								read more
-							</button>
-						</div>
-					</div>
-					<div class="col-md-4 col-sm-6">
-						<div class="single-how-works">
-							<div class="single-how-works-icon">
-								<i class="flaticon-location-on-road"></i>
-							</div>
-							<h2><a href="#">explore <span> amazing</span> place</a></h2>
-							<p>
-								Lorem ipsum dolor sit amet, consecte adipisicing elit, sed do eiusmod tempor incididunt
-								ut laboremagna aliqua.
-							</p>
-							<button class="welcome-hero-btn how-work-btn" onclick="window.location.href='#'">
-								read more
-							</button>
-						</div>
-					</div>
+	<div class="row">
+		<div class="col-md-4 col-sm-6">
+			<div class="single-how-works">
+				<div class="single-how-works-icon">
+					<i class="flaticon-lightbulb-idea"></i>
 				</div>
+				<h2><a href="#">Choisissez <span>votre parcours</span></a></h2>
+				<p>
+					Décidez du domaine dans lequel vous souhaitez vous perfectionner. Que ce soit la technologie, l'artisanat ou le développement personnel, nos formations sont conçues pour vous aider à atteindre vos objectifs.
+				</p>
+				<button class="welcome-hero-btn how-work-btn" onclick="window.location.href='#'">
+					En savoir plus
+				</button>
 			</div>
-		</div><!--/.container-->
+		</div>
+		<div class="col-md-4 col-sm-6">
+			<div class="single-how-works">
+				<div class="single-how-works-icon">
+					<i class="flaticon-networking"></i>
+				</div>
+				<h2><a href="#">Trouvez <span>la formation idéale</span></a></h2>
+				<p>
+					Parcourez nos programmes pour découvrir la formation qui correspond à vos ambitions. Nos experts sont là pour vous guider à chaque étape de votre apprentissage.
+				</p>
+				<button class="welcome-hero-btn how-work-btn" onclick="window.location.href='#'">
+					En savoir plus
+				</button>
+			</div>
+		</div>
+		<div class="col-md-4 col-sm-6">
+			<div class="single-how-works">
+				<div class="single-how-works-icon">
+					<i class="flaticon-location-on-road"></i>
+				</div>
+				<h2><a href="#">Explorez <span>de nouvelles compétences</span></a></h2>
+				<p>
+					Plongez dans des expériences d'apprentissage enrichissantes et découvrez des compétences qui vous ouvriront de nouvelles opportunités professionnelles ou personnelles.
+				</p>
+				<button class="welcome-hero-btn how-work-btn" onclick="window.location.href='#'">
+					En savoir plus
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<!--/.container-->
 
-	</section><!--/.works-->
+</section>
+	<!--/.works-->
 	<!--works end -->
 
 	<!--explore start -->
-	<section id="explore" class="explore">
-		<div class="container">
-			<div class="section-header">
-				<h2>explore</h2>
-				<p>Quelque formations </p>
-			</div><!--/.section-header-->
-			<div class="explore-content">
-				<div class="row">
-					<div class=" col-md-4 col-sm-6">
-						<div class="single-explore-item">
-							<div class="single-explore-img">
-								<img src="assets/images/explore/e1.avif" alt="explore image">
-								<div class="single-explore-img-info">
-									<button onclick="window.location.href='#'">best rated</button>
-									<div class="single-explore-image-icon-box">
-										<ul>
-											<li>
-												<div class="single-explore-image-icon">
-													<i class="fa fa-arrows-alt"></i>
-												</div>
-											</li>
-											<li>
-												<div class="single-explore-image-icon">
-													<i class="fa fa-bookmark-o"></i>
-												</div>
-											</li>
-										</ul>
+	<!--/.explore-->
+<section id="explore" class="explore">
+    <div class="container">
+        <div class="section-header">
+            <h2>Explorer</h2>
+            <p>Quelques formations</p>
+        </div><!--/.section-header-->
+        <div class="explore-content">
+            <div class="row">
+                <div class="col-md-4 col-sm-6">
+                    <div class="single-explore-item">
+                        <div class="single-explore-img">
+                            <img src="assets/images/explore/e1.avif" alt="formation informatique">
+                            <div class="single-explore-img-info">
+                                <button onclick="window.location.href='#'">Meilleure évaluation</button>
+                                <div class="single-explore-image-icon-box">
+                                    <ul>
+                                        <li>
+                                            <div class="single-explore-image-icon">
+                                                <i class="fa fa-arrows-alt"></i>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="single-explore-image-icon">
+                                                <i class="fa fa-bookmark-o"></i>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single-explore-txt bg-theme-1">
+                            <h2><a href="#">Développement Web</a></h2>
+                            <p class="explore-rating-price">
+                                <span class="explore-rating">5.0</span>
+                                <a href="#"> 20 avis</a>
+                                <span class="explore-price-box">
+                                    Prix :
+                                    <span class="explore-price">20.000F-50.000F</span>
+                                </span>
+                                <a href="#">Informatique</a>
+                            </p>
+                            <div class="explore-person">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <div class="explore-person-img">
+                                            <a href="#">
+                                                <img src="assets/images/explore/person.png" alt="formateur">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <p>
+                                            Apprenez à créer des sites web dynamiques avec HTML, CSS et JavaScript. Devenez un développeur web recherché !
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="explore-open-close-part">
+                                <div class="row">
+                                    <div class="col-sm-5">
+									<button class="close-btn" onclick="window.location.href='{{ route('inscription') }}'">S'inscrire maintenant</button>
+                                    </div>
+                                    <div class="col-sm-7">
+                                        <div class="explore-map-icon">
+                                            <a href="#"><i data-feather="map-pin"></i></a>
+                                            <a href="#"><i data-feather="upload"></i></a>
+                                            <a href="#"><i data-feather="heart"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="single-explore-item">
+                        <div class="single-explore-img">
+                            <img src="assets/images/explore/e2.jpg" alt="marketing digital">
+                            <div class="single-explore-img-info">
+                                <button onclick="window.location.href='#'">En vedette</button>
+                                <div class="single-explore-image-icon-box">
+                                    <ul>
+                                        <li>
+                                            <div class="single-explore-image-icon">
+                                                <i class="fa fa-arrows-alt"></i>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="single-explore-image-icon">
+                                                <i class="fa fa-bookmark-o"></i>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single-explore-txt bg-theme-2">
+                            <h2><a href="#">Marketing Digital</a></h2>
+                            <p class="explore-rating-price">
+                                <span class="explore-rating">4.8</span>
+                                <a href="#"> 15 avis</a>
+                                <span class="explore-price-box">
+                                    Prix :
+                                    <span class="explore-price">100.000F-400.000F</span>
+                                </span>
+                                <a href="#">Marketing</a>
+                            </p>
+                            <div class="explore-person">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <div class="explore-person-img">
+                                            <a href="#">
+                                                <img src="assets/images/explore/person.png" alt="formateur">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <p>
+                                            Découvrez les stratégies de marketing en ligne, y compris le SEO, le SEM et les réseaux sociaux pour développer votre entreprise.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="explore-open-close-part">
+                                <div class="row">
+                                    <div class="col-sm-5">
+									<button class="close-btn" onclick="window.location.href='{{ route('inscription') }}'">S'inscrire maintenant</button>
+                                    </div>
+                                    <div class="col-sm-7">
+                                        <div class="explore-map-icon">
+                                            <a href="#"><i data-feather="map-pin"></i></a>
+                                            <a href="#"><i data-feather="upload"></i></a>
+                                            <a href="#"><i data-feather="heart"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="single-explore-item">
+                        <div class="single-explore-img">
+                            <img src="assets/images/explore/e3.jpeg" alt="art et design">
+                            <div class="single-explore-img-info">
+                                <button onclick="window.location.href='#'">Meilleure évaluation</button>
+                                <div class="single-explore-image-icon-box">
+                                    <ul>
+                                        <li>
+                                            <div class="single-explore-image-icon">
+                                                <i class="fa fa-arrows-alt"></i>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="single-explore-image-icon">
+                                                <i class="fa fa-bookmark-o"></i>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single-explore-txt bg-theme-3">
+                            <h2><a href="#">Art et Design</a></h2>
+                            <p class="explore-rating-price">
+                                <span class="explore-rating">4.9</span>
+                                <a href="#"> 12 avis</a>
+                                <span class="explore-price-box">
+                                    Prix :
+                                    <span class="explore-price">150.000F-350.000F</span>
+                                </span>
+                                <a href="#">Créativité</a>
+                            </p>
+                            <div class="explore-person">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <div class="explore-person-img">
+                                            <a href="#">
+                                                <img src="assets/images/explore/person.png" alt="formateur">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <p>
+                                            Développez vos compétences artistiques avec nos cours de peinture, de dessin et de design graphique. Libérez votre créativité !
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="explore-open-close-part">
+                                <div class="row">
+                                    <div class="col-sm-5">
+									<button class="close-btn" onclick="window.location.href='{{ route('inscription') }}'">S'inscrire maintenant</button>
+                                    </div>
+                                    <div class="col-sm-7">
+                                        <div class="explore-map-icon">
+                                            <a href="#"><i data-feather="map-pin"></i></a>
+                                            <a href="#"><i data-feather="upload"></i></a>
+                                            <a href="#"><i data-feather="heart"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="single-explore-item">
+                        <div class="single-explore-img">
+                            <img src="assets/images/explore/e4.jpg" alt="couture">
+                            <div class="single-explore-img-info">
+                                <button onclick="window.location.href='#'">Vue la plus consultée</button>
+                                <div class="single-explore-image-icon-box">
+                                    <ul>
+                                        <li>
+                                            <div class="single-explore-image-icon">
+                                                <i class="fa fa-arrows-alt"></i>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="single-explore-image-icon">
+                                                <i class="fa fa-bookmark-o"></i>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single-explore-txt bg-theme-4">
+                            <h2><a href="#">Couture et Mode</a></h2>
+                            <p class="explore-rating-price">
+                                <span class="explore-rating">5.0</span>
+                                <a href="#"> 18 avis</a>
+                                <span class="explore-price-box">
+                                    Prix :
+                                    <span class="explore-price">80.000F-250.000F</span>
+                                </span>
+                                <a href="#">Mode</a>
+                            </p>
+                            <div class="explore-person">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <div class="explore-person-img">
+                                            <a href="#">
+                                                <img src="assets/images/explore/person.png" alt="formateur">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <p>
+                                            Apprenez à coudre vos propres vêtements et à créer des designs uniques grâce à nos cours de couture.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="explore-open-close-part">
+                                <div class="row">
+                                    <div class="col-sm-5">
+									<button class="close-btn" onclick="window.location.href='{{ route('inscription') }}'">S'inscrire maintenant</button>
+                                    </div>
+                                    <div class="col-sm-7">
+                                        <div class="explore-map-icon">
+                                            <a href="#"><i data-feather="map-pin"></i></a>
+                                            <a href="#"><i data-feather="upload"></i></a>
+                                            <a href="#"><i data-feather="heart"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="single-explore-item">
+                        <div class="single-explore-img">
+                            <img src="assets/images/explore/e5.jpg" alt="plomberie">
+                            <div class="single-explore-img-info">
+                                <button onclick="window.location.href='#'">En vedette</button>
+                                <div class="single-explore-image-icon-box">
+                                    <ul>
+                                        <li>
+                                            <div class="single-explore-image-icon">
+                                                <i class="fa fa-arrows-alt"></i>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="single-explore-image-icon">
+                                                <i class="fa fa-bookmark-o"></i>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single-explore-txt bg-theme-2">
+                            <h2><a href="#">Plomberie</a></h2>
+                            <p class="explore-rating-price">
+                                <span class="explore-rating">4.7</span>
+                                <a href="#"> 10 avis</a>
+                                <span class="explore-price-box">
+                                    Prix :
+                                    <span class="explore-price">100.000F-300.000F</span>
+                                </span>
+                                <a href="#">Bâtiment</a>
+                            </p>
+                            <div class="explore-person">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <div class="explore-person-img">
+                                            <a href="#">
+                                                <img src="assets/images/explore/person.png" alt="formateur">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <p>
+                                            Apprenez les bases de la plomberie, y compris les réparations, l'installation de tuyaux et les systèmes de plomberie résidentielle, chez nous c'est la pratique.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="explore-open-close-part">
+                                <div class="row">
+                                    <div class="col-sm-5">
+									<button class="close-btn" onclick="window.location.href='{{ route('inscription') }}'">S'inscrire maintenant</button>
+                                    </div>
+                                    <div class="col-sm-7">
+                                        <div class="explore-map-icon">
+                                            <a href="#"><i data-feather="map-pin"></i></a>
+                                            <a href="#"><i data-feather="upload"></i></a>
+                                            <a href="#"><i data-feather="heart"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="single-explore-item">
+                        <div class="single-explore-img">
+                            <img src="assets/images/explore/e6.jpeg" alt="énergie">
+                            <div class="single-explore-img-info">
+                                <button onclick="window.location.href='#'">Meilleure évaluation</button>
+                                <div class="single-explore-image-icon-box">
+                                    <ul>
+                                        <li>
+                                            <div class="single-explore-image-icon">
+                                                <i class="fa fa-arrows-alt"></i>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="single-explore-image-icon">
+                                                <i class="fa fa-bookmark-o"></i>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single-explore-txt bg-theme-5">
+                            <h2><a href="#">Énergie Renouvelable</a></h2>
+                            <p class="explore-rating-price">
+                                <span class="explore-rating">5.0</span>
+                                <a href="#"> 22 avis</a>
+                                <span class="explore-price-box">
+                                    Prix :
+                                    <span class="explore-price">60.000F</span>
+                                </span>
+                                <a href="#">Environnement</a>
+                            </p>
+                            <div class="explore-person">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <div class="explore-person-img">
+                                            <a href="#">
+                                                <img src="assets/images/explore/person.png" alt="formateur">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <p>
+                                            Comprenez les principes des énergies renouvelables, y compris le solaire et l'éolien, et comment les intégrer dans votre vie.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="explore-open-close-part">
+                                <div class="row">
+                                    <div class="col-sm-5">
+									<div class="col-sm-12">
+										<button class="close-btn" onclick="window.location.href='{{ route('inscription') }}'">S'inscrire maintenant</button>
 									</div>
-								</div>
-							</div>
-							<div class="single-explore-txt bg-theme-1">
-								<h2><a href="#">tommy helfinger bar</a></h2>
-								<p class="explore-rating-price">
-									<span class="explore-rating">5.0</span>
-									<a href="#"> 10 ratings</a>
-									<span class="explore-price-box">
-										form
-										<span class="explore-price">5$-300$</span>
-									</span>
-									<a href="#">resturent</a>
-								</p>
-								<div class="explore-person">
-									<div class="row">
-										<div class="col-sm-2">
-											<div class="explore-person-img">
-												<a href="#">
-													<img src="assets/images/explore/person.png" alt="explore person">
-												</a>
-											</div>
-										</div>
-										<div class="col-sm-10">
-											<p>
-												Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-												tempor incid ut labore et dolore magna aliqua....
-											</p>
-										</div>
-									</div>
-								</div>
-								<div class="explore-open-close-part">
-									<div class="row">
-										<div class="col-sm-5">
-											<button class="close-btn" onclick="window.location.href='#'">close
-												now</button>
-										</div>
-										<div class="col-sm-7">
-											<div class="explore-map-icon">
-												<a href="#"><i data-feather="map-pin"></i></a>
-												<a href="#"><i data-feather="upload"></i></a>
-												<a href="#"><i data-feather="heart"></i></a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 col-sm-6">
-						<div class="single-explore-item">
-							<div class="single-explore-img">
-								<img src="assets/images/explore/e2.jpg" alt="explore image">
-								<div class="single-explore-img-info">
-									<button onclick="window.location.href='#'">featured</button>
-									<div class="single-explore-image-icon-box">
-										<ul>
-											<li>
-												<div class="single-explore-image-icon">
-													<i class="fa fa-arrows-alt"></i>
-												</div>
-											</li>
-											<li>
-												<div class="single-explore-image-icon">
-													<i class="fa fa-bookmark-o"></i>
-												</div>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="single-explore-txt bg-theme-2">
-								<h2><a href="#">swim and dine resort</a></h2>
-								<p class="explore-rating-price">
-									<span class="explore-rating">4.5</span>
-									<a href="#"> 8 ratings</a>
-									<span class="explore-price-box">
-										form
-										<span class="explore-price">50$-500$</span>
-									</span>
-									<a href="#">hotel</a>
-								</p>
-								<div class="explore-person">
-									<div class="row">
-										<div class="col-sm-2">
-											<div class="explore-person-img">
-												<a href="#">
-													<img src="assets/images/explore/person.png" alt="explore person">
-												</a>
-											</div>
-										</div>
-										<div class="col-sm-10">
-											<p>
-												Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-												tempor incid ut labore et dolore magna aliqua....
-											</p>
-										</div>
-									</div>
-								</div>
-								<div class="explore-open-close-part">
-									<div class="row">
-										<div class="col-sm-5">
-											<button class="close-btn open-btn" onclick="window.location.href='#'">open
-												now</button>
-										</div>
-										<div class="col-sm-7">
-											<div class="explore-map-icon">
-												<a href="#"><i data-feather="map-pin"></i></a>
-												<a href="#"><i data-feather="upload"></i></a>
-												<a href="#"><i data-feather="heart"></i></a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 col-sm-6">
-						<div class="single-explore-item">
-							<div class="single-explore-img">
-								<img src="assets/images/explore/e3.jpeg" alt="explore image">
-								<div class="single-explore-img-info">
-									<button onclick="window.location.href='#'">best rated</button>
-									<div class="single-explore-image-icon-box">
-										<ul>
-											<li>
-												<div class="single-explore-image-icon">
-													<i class="fa fa-arrows-alt"></i>
-												</div>
-											</li>
-											<li>
-												<div class="single-explore-image-icon">
-													<i class="fa fa-bookmark-o"></i>
-												</div>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="single-explore-txt bg-theme-3">
-								<h2><a href="#">europe tour</a></h2>
-								<p class="explore-rating-price">
-									<span class="explore-rating">5.0</span>
-									<a href="#"> 15 ratings</a>
-									<span class="explore-price-box">
-										form
-										<span class="explore-price">5k$-10k$</span>
-									</span>
-									<a href="#">destination</a>
-								</p>
-								<div class="explore-person">
-									<div class="row">
-										<div class="col-sm-2">
-											<div class="explore-person-img">
-												<a href="#">
-													<img src="assets/images/explore/person.png" alt="explore person">
-												</a>
-											</div>
-										</div>
-										<div class="col-sm-10">
-											<p>
-												Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-												tempor incid ut labore et dolore magna aliqua....
-											</p>
-										</div>
-									</div>
-								</div>
-								<div class="explore-open-close-part">
-									<div class="row">
-										<div class="col-sm-5">
-											<button class="close-btn" onclick="window.location.href='#'">close
-												now</button>
-										</div>
-										<div class="col-sm-7">
-											<div class="explore-map-icon">
-												<a href="#"><i data-feather="map-pin"></i></a>
-												<a href="#"><i data-feather="upload"></i></a>
-												<a href="#"><i data-feather="heart"></i></a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class=" col-md-4 col-sm-6">
-						<div class="single-explore-item">
-							<div class="single-explore-img">
-								<img src="assets/images/explore/e4.jpg" alt="explore image">
-								<div class="single-explore-img-info">
-									<button onclick="window.location.href='#'">most view</button>
-									<div class="single-explore-image-icon-box">
-										<ul>
-											<li>
-												<div class="single-explore-image-icon">
-													<i class="fa fa-arrows-alt"></i>
-												</div>
-											</li>
-											<li>
-												<div class="single-explore-image-icon">
-													<i class="fa fa-bookmark-o"></i>
-												</div>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="single-explore-txt bg-theme-4">
-								<h2><a href="#">banglow with swiming pool</a></h2>
-								<p class="explore-rating-price">
-									<span class="explore-rating">5.0</span>
-									<a href="#"> 10 ratings</a>
-									<span class="explore-price-box">
-										form
-										<span class="explore-price">10k$-15k$</span>
-									</span>
-									<a href="#">real estate</a>
-								</p>
-								<div class="explore-person">
-									<div class="row">
-										<div class="col-sm-2">
-											<div class="explore-person-img">
-												<a href="#">
-													<img src="assets/images/explore/person.png" alt="explore person">
-												</a>
-											</div>
-										</div>
-										<div class="col-sm-10">
-											<p>
-												Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-												tempor incid ut labore et dolore magna aliqua....
-											</p>
-										</div>
-									</div>
-								</div>
-								<div class="explore-open-close-part">
-									<div class="row">
-										<div class="col-sm-5">
-											<button class="close-btn" onclick="window.location.href='#'">close
-												now</button>
-										</div>
-										<div class="col-sm-7">
-											<div class="explore-map-icon">
-												<a href="#"><i data-feather="map-pin"></i></a>
-												<a href="#"><i data-feather="upload"></i></a>
-												<a href="#"><i data-feather="heart"></i></a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 col-sm-6">
-						<div class="single-explore-item">
-							<div class="single-explore-img">
-								<img src="assets/images/explore/e5.jpg" alt="explore image">
-								<div class="single-explore-img-info">
-									<button onclick="window.location.href='#'">featured</button>
-									<div class="single-explore-image-icon-box">
-										<ul>
-											<li>
-												<div class="single-explore-image-icon">
-													<i class="fa fa-arrows-alt"></i>
-												</div>
-											</li>
-											<li>
-												<div class="single-explore-image-icon">
-													<i class="fa fa-bookmark-o"></i>
-												</div>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="single-explore-txt bg-theme-2">
-								<h2><a href="#">vintage car expo</a></h2>
-								<p class="explore-rating-price">
-									<span class="explore-rating">4.2</span>
-									<a href="#"> 8 ratings</a>
-									<span class="explore-price-box">
-										form
-										<span class="explore-price">500$-1200$</span>
-									</span>
-									<a href="#">Destination</a>
-								</p>
-								<div class="explore-person">
-									<div class="row">
-										<div class="col-sm-2">
-											<div class="explore-person-img">
-												<a href="#">
-													<img src="assets/images/explore/person.png" alt="explore person">
-												</a>
-											</div>
-										</div>
-										<div class="col-sm-10">
-											<p>
-												Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-												tempor incid ut labore et dolore magna aliqua....
-											</p>
-										</div>
-									</div>
-								</div>
-								<div class="explore-open-close-part">
-									<div class="row">
-										<div class="col-sm-5">
-											<button class="close-btn open-btn" onclick="window.location.href='#'">open
-												now</button>
-										</div>
-										<div class="col-sm-7">
-											<div class="explore-map-icon">
-												<a href="#"><i data-feather="map-pin"></i></a>
-												<a href="#"><i data-feather="upload"></i></a>
-												<a href="#"><i data-feather="heart"></i></a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 col-sm-6">
-						<div class="single-explore-item">
-							<div class="single-explore-img">
-								<img src="assets/images/explore/e6.jpeg" alt="explore image">
-								<div class="single-explore-img-info">
-									<button onclick="window.location.href='#'">best rated</button>
-									<div class="single-explore-image-icon-box">
-										<ul>
-											<li>
-												<div class="single-explore-image-icon">
-													<i class="fa fa-arrows-alt"></i>
-												</div>
-											</li>
-											<li>
-												<div class="single-explore-image-icon">
-													<i class="fa fa-bookmark-o"></i>
-												</div>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="single-explore-txt bg-theme-5">
-								<h2><a href="#">thailand tour</a></h2>
-								<p class="explore-rating-price">
-									<span class="explore-rating">5.0</span>
-									<a href="#"> 15 ratings</a>
-									<span class="explore-price-box">
-										form
-										<span class="explore-price">5k$-10k$</span>
-									</span>
-									<a href="#">destination</a>
-								</p>
-								<div class="explore-person">
-									<div class="row">
-										<div class="col-sm-2">
-											<div class="explore-person-img">
-												<a href="#">
-													<img src="assets/images/explore/person.png" alt="explore person">
-												</a>
-											</div>
-										</div>
-										<div class="col-sm-10">
-											<p>
-												Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-												tempor incid ut labore et dolore magna aliqua....
-											</p>
-										</div>
-									</div>
-								</div>
-								<div class="explore-open-close-part">
-									<div class="row">
-										<div class="col-sm-5">
-											<button class="close-btn" onclick="window.location.href='#'">close
-												now</button>
-										</div>
-										<div class="col-sm-7">
-											<div class="explore-map-icon">
-												<a href="#"><i data-feather="map-pin"></i></a>
-												<a href="#"><i data-feather="upload"></i></a>
-												<a href="#"><i data-feather="heart"></i></a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div><!--/.container-->
+                                    </div>
+                                    <div class="col-sm-7">
+                                        <div class="explore-map-icon">
+                                            <a href="#"><i data-feather="map-pin"></i></a>
+                                            <a href="#"><i data-feather="upload"></i></a>
+                                            <a href="#"><i data-feather="heart"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--/.container-->
+</section>
 
-	</section><!--/.explore-->
 	<!--explore end -->
 
 	<!--reviews start -->
 	<section id="reviews" class="reviews">
 		<div class="section-header">
-			<h2>clients reviews</h2>
-			<p>What our client say about us</p>
+		<h2>Avis de nos clients</h2>
+		<p>Ce que nos clients disent de nous</p>
 		</div><!--/.section-header-->
 		<div class="reviews-content">
 			<div class="testimonial-carousel">
@@ -499,8 +489,8 @@
 								<img src="assets/images/clients/c1.jpg" alt="clients" width="60px" height="60px">
 							</div><!--/.testimonial-img-->
 							<div class="testimonial-person">
-								<h2>Tom Leakar</h2>
-								<h4>london, UK</h4>
+								<h2>Afrique</h2>
+								<h4>Burkina, Mail, Niger,CI</h4>
 								<div class="testimonial-person-star">
 									<i class="fa fa-star"></i>
 									<i class="fa fa-star"></i>
@@ -527,8 +517,8 @@
 								<img src="assets/images/clients/c1.jpg" alt="clients" width="60px" height="60px">
 							</div><!--/.testimonial-img-->
 							<div class="testimonial-person">
-								<h2>monirul islam</h2>
-								<h4>london, UK</h4>
+							<h2>Afrique</h2>
+							<h4>Burkina, Mail, Niger,CI</h4>
 								<div class="testimonial-person-star">
 									<i class="fa fa-star"></i>
 									<i class="fa fa-star"></i>
@@ -554,8 +544,8 @@
 								<img src="assets/images/clients/c1.jpg" alt="clients" width="60px" height="60px">
 							</div><!--/.testimonial-img-->
 							<div class="testimonial-person">
-								<h2>Shohrab Hossain</h2>
-								<h4>london, UK</h4>
+							<h2>Afrique</h2>
+							<h4>Burkina, Mail, Niger,CI</h4>
 								<div class="testimonial-person-star">
 									<i class="fa fa-star"></i>
 									<i class="fa fa-star"></i>
@@ -582,8 +572,8 @@
 								<img src="assets/images/clients/c1.jpg" alt="clients" width="60px" height="60px">
 							</div><!--/.testimonial-img-->
 							<div class="testimonial-person">
-								<h2>Tom Leakar</h2>
-								<h4>london, UK</h4>
+							<h2>Afrique</h2>
+							<h4>Burkina, Mail, Niger,CI</h4>
 								<div class="testimonial-person-star">
 									<i class="fa fa-star"></i>
 									<i class="fa fa-star"></i>
@@ -610,8 +600,8 @@
 								<img src="assets/images/clients/c1.jpg" alt="clients" width="60px" height="60px">
 							</div><!--/.testimonial-img-->
 							<div class="testimonial-person">
-								<h2>Tom Leakar</h2>
-								<h4>london, UK</h4>
+							<h2>Afrique</h2>
+							<h4>Burkina, Mail, Niger,CI</h4>
 								<div class="testimonial-person-star">
 									<i class="fa fa-star"></i>
 									<i class="fa fa-star"></i>
@@ -638,8 +628,8 @@
 								<img src="assets/images/clients/c1.jpg" alt="clients" width="60px" height="60px">
 							</div><!--/.testimonial-img-->
 							<div class="testimonial-person">
-								<h2>monirul islam</h2>
-								<h4>london, UK</h4>
+							<h2>Afrique</h2>
+							<h4>Burkina, Mail, Niger,CI</h4>
 								<div class="testimonial-person-star">
 									<i class="fa fa-star"></i>
 									<i class="fa fa-star"></i>
@@ -664,6 +654,14 @@
 	<!--reviews end -->
 
 	<!-- statistics strat -->
+	<!--/.explore-->
+	<!--explore end -->
+
+	<!--reviews start -->
+	<!--/.reviews-->
+	<!--reviews end -->
+
+	<!-- statistics strat -->
 	<section id="statistics" class="statistics">
 		<div class="container">
 			<div class="statistics-counter">
@@ -672,7 +670,7 @@
 						<div class="statistics-content">
 							<div class="counter">90 </div> <span>K+</span>
 						</div><!--/.statistics-content-->
-						<h3>listings</h3>
+						<h3>Nos cours</h3>
 					</div><!--/.single-ststistics-box-->
 				</div><!--/.col-->
 				<div class="col-md-3 col-sm-6">
@@ -680,7 +678,7 @@
 						<div class="statistics-content">
 							<div class="counter">40</div> <span>k+</span>
 						</div><!--/.statistics-content-->
-						<h3>listing categories</h3>
+						<h3>Nombres d'inscriptions</h3>
 					</div><!--/.single-ststistics-box-->
 				</div><!--/.col-->
 				<div class="col-md-3 col-sm-6">
@@ -688,7 +686,7 @@
 						<div class="statistics-content">
 							<div class="counter">65</div> <span>k+</span>
 						</div><!--/.statistics-content-->
-						<h3>visitors</h3>
+						<h3>Visiteurs</h3>
 					</div><!--/.single-ststistics-box-->
 				</div><!--/.col-->
 				<div class="col-md-3 col-sm-6">
@@ -696,7 +694,7 @@
 						<div class="statistics-content">
 							<div class="counter">50</div> <span>k+</span>
 						</div><!--/.statistics-content-->
-						<h3>happy clients</h3>
+						<h3>Clients </h3>
 					</div><!--/.single-ststistics-box-->
 				</div><!--/.col-->
 			</div><!--/.statistics-counter-->
