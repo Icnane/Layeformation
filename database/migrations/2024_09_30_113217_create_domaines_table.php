@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('domaines', function (Blueprint $table) {
-            $table->integer('id')->primary();  // Entrée manuelle de l'ID
+            $table->id(); // Utilise bigint unsigned par défaut
             $table->string('nom');
             $table->string('logo')->nullable();
             $table->timestamps();

@@ -12,8 +12,8 @@
 							<i class="fa fa-bars"></i>
 						</button>
 						<a class="navbar-brand" href="index.html" style="display: flex; align-items: center;">
-							<img src="assets/images/WhatsApp_Image_2024-07-05_à_11.11.09_7c7222e6-removebg-preview.png"
-								alt="LAYFORMATION" style="height: 50px; margin-right: 10px;">
+						<img src="{{ asset('assets/images/WhatsApp_Image_2024-07-05_à_11.11.09_7c7222e6-removebg-preview.png') }}" alt="LAYFORMATION" style="height: 50px; margin-right: 10px;">
+
 							LAY<span>FORMATION</span>
 						</a>
 					</div><!--/.navbar-header-->

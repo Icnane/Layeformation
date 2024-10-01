@@ -1,13 +1,18 @@
 <!doctype html>
 <html class="no-js" lang="en">
 
+<!-- <head> -->
 @include('partials.head')
+<!-- </head> -->
 
-<body>
-    <!--header-top start -->
-    @include('partials.sidbar')
-    @vite('resources/css/styles.css')
-    @vite('resources/css/style.css')
+<!-- <body> -->
+	<!--header-top start -->
+	@include('partials.sidbar')
+    <!-- </header> -->
+     <!-- Inclure le fichier CSS via Vite -->
+     
+     @vite('resources/css/style.css')
+    
 
     <h1 style="text-align: center; padding: 30px;">Formations dans le Domaine: {{ $domaine->nom }}</h1>
 
@@ -28,10 +33,7 @@
                         </div>
                     @endforeach
                 </div>
-            </div><!--/.container-->
-        </section>
-    </section>
-
-    @include('components.footer')
-</body>
-</html>
+            </div>
+            @include('components.footer')
+ <!-- </body> -->
+	</html>

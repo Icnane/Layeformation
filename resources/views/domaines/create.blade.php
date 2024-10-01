@@ -16,21 +16,22 @@
     @endif
 
     <form action="{{ route('domaines.store') }}" method="POST" enctype="multipart/form-data" class="form-container">
-        @csrf
-        <div class="form-group">
-            <label for="id">ID :</label>
-            <input type="number" name="id" class="form-control" value="{{ old('id') }}" required>
-        </div>
-        <div class="form-group">
-            <label for="nom">Nom :</label>
-            <input type="text" name="nom" class="form-control" value="{{ old('nom') }}" required>
-        </div>
-        <div class="form-group">
-            <label for="logo">Logo :</label>
-            <input type="file" name="logo" class="form-control" required>
-        </div>
-        <button type="submit" class="btn btn-success">Enregistrer</button>
-    </form>
+    @csrf
+    <div class="form-group">
+        <label for="id">ID :</label>
+        <input type="number" name="id" class="form-control" value="{{ old('id') }}" required>
+    </div>
+    <div class="form-group">
+        <label for="nom">Nom :</label>
+        <input type="text" name="nom" class="form-control" value="{{ old('nom') }}" required>
+    </div>
+    <div class="form-group">
+        <label for="logo">Logo :</label>
+        <input type="file" name="logo" class="form-control" accept="image/*" required> <!-- accept pour limiter aux images -->
+    </div>
+    <button type="submit" class="btn btn-success">Enregistrer</button>
+</form>
+
 
 </div>
 @endsection

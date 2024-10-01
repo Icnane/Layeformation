@@ -93,3 +93,4 @@ Route::get('domaines/{domaine}/formations', [DomaineController::class, 'formatio
 // Route pour récupérer le domaine d'une formation (facultatif)
 Route::get('formations/{formation}/domaine', [FormationController::class, 'showDomaine'])
     ->name('formations.domaine');
+   
