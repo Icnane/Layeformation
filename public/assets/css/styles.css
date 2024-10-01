@@ -1,0 +1,441 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.blog-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.blog-post {
+    width: 32%;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.blog-post:hover {
+    transform: translateY(-5px);
+}
+
+.blog-image {
+    width: 100%;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+}
+
+.blog-content {
+    padding: 15px;
+}
+
+.blog-post h2 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.blog-post .date {
+    color: #666;
+    font-size: 0.8em;
+    margin: 8px 0;
+}
+
+.blog-post .summary {
+    font-size: 0.9em;
+    color: #555;
+    line-height: 1.4;
+    margin-bottom: 15px;
+}
+
+.blog-post .read-more {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #007BFF;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.blog-post .read-more:hover {
+    background-color: #0056b3;
+}
+
+/* <title>À Propos de Nous</title> */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-container h1 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.about-container p {
+    font-size: 1em;
+    color: #666;
+    margin: 20px 0;
+}
+
+.founder-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px 0;
+}
+
+.founder-section img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.founder-section h2 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.founder-section p {
+    font-size: 1em;
+    color: #666;
+    max-width: 600px;
+}
+
+.mission-section {
+    margin: 40px 0;
+}
+
+.mission-section h2 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.mission-section p {
+    font-size: 1em;
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.values-section {
+    margin: 40px 0;
+}
+
+.values-section h2 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.values-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.values-section li {
+    font-size: 1em;
+    color: #666;
+    margin: 10px 0;
+}
+
+
+.about-container:hover h1,
+.about-container:hover p,
+.about-container:hover h2,
+.about-container:hover li {
+    color: #fff;
+}
+
+.about-container:hover {
+    background-color: #ff545a;
+}
+
+
+
+/* modal css */
+
+.form-container {
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	position: relative;
+	width: 300px;
+}
+
+.form-container h2 {
+	margin-top: 0;
+	text-align: center;
+}
+
+.form-container input[type="email"],
+.form-container input[type="password"],
+.form-container input[type="text"] {
+	width: 100%;
+	padding: 10px;
+	margin: 10px 0;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+
+.form-container button {
+	width: 100%;
+	padding: 10px;
+	background-color: #ff545a;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	margin: 10px 0;
+}
+
+.form-container button:hover {
+	background-color: #0056b3;
+}
+
+.form-container .close-btn {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	cursor: pointer;
+	font-size: 18px;
+	background-color: transparent;
+	border: none;
+}
+
+.form-container .create-account {
+	text-align: center;
+	margin-top: 10px;
+	font-size: 14px;
+}
+
+.form-container .create-account a {
+	color: #007BFF;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.form-container .create-account a:hover {
+	text-decoration: underline;
+}
+
+#create-account-form {
+	display: none;
+}
+
+
+/* Nous contacter */
+.con-container {
+    display: flex;
+    background-color: rgb(249, 247, 247);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(7, 0, 0, 0.1);
+    max-width: 1200px;
+    width: 100%;
+}
+
+.text-section,
+.contact-form-section {
+    flex: 1;
+    padding: 10px;
+    box-sizing: border-box;
+    margin: 0 10px;
+}
+
+/* Style de la ligne de séparation rouge transparente */
+.divider {
+    width: 2px;
+    background-color: rgba(255, 0, 0, 0.3); /* Rouge transparent */
+    margin: 0 10px;
+}
+
+.text-section {
+    background-color: #f6f2f2;
+    color: #fff;
+    border-radius: 8px;
+}
+
+.contact-form-section {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.platform-title {
+    text-align: left; /* Aligné à gauche */
+    margin-bottom: 20px;
+}
+
+.platform-title .lay {
+    font-size: 48px;
+    font-weight: bold;
+    color: #060101;
+}
+
+.platform-title .formation {
+    font-size: 48px;
+    color: #FF6347; /* Rouge clair */
+}
+
+.text-section h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.text-section p {
+    margin: 10px 0;
+}
+
+.contact-info {
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    margin: 5px 0;
+}
+
+.contact-info a {
+    color: #FF6347; /* Couleur du lien */
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+.contact-form h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #FF6347; /* Ligne sous le titre */
+    padding-bottom: 5px;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.contact-form button {
+    padding: 10px;
+    background-color: #FF6347; /* Rouge clair */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.contact-form button:hover {
+    background-color: #e5533c;
+}
+
+/* inscription */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.form-container {
+    width: 50%;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+

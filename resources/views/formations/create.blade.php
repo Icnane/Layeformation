@@ -41,8 +41,20 @@
             <label for="heures_par_semaine">Heures par semaine :</label>
             <input type="number" name="heures_par_semaine" class="form-control" value="{{ old('heures_par_semaine') }}" required>
         </div>
+        <div class="form-group">
+            <label for="domaine_id">Domaine :</label>
+            <select name="domaine_id" class="form-control" required>
+                <option value="">Sélectionnez un domaine</option>
+                @foreach($domaines as $domaine)
+                    <option value="{{ $domaine->id }}" {{ old('domaine_id') == $domaine->id ? 'selected' : '' }}>
+                        {{ $domaine->nom }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
         <button type="submit" class="btn btn-success">Enregistrer</button>
     </form>
+
 </div>
 </div>
 @endsection

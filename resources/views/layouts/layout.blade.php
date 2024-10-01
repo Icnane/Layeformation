@@ -29,6 +29,9 @@
             <div class="nav-item" data-target="trainers">
                 <a href="{{ route('formateurs.index') }}" style="color: inherit; text-decoration: none;">Formateurs</a>
             </div>
+            <div class="nav-item" data-target="reports">
+                <a href="{{ route('domaines.index') }}" style="color: inherit; text-decoration: none;">Domaines</a>
+            </div>
             {{--
             <div class="nav-item" data-target="reports">
                 <a href="{{ route('reports.index') }}" style="color: inherit; text-decoration: none;">Rapports</a>

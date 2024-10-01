@@ -26,7 +26,7 @@ class Formation extends Model
      * @var array
      */
     protected $fillable = [
-        'id', 'promo', 'nom', 'description', 'cout', 'heures_par_semaine'
+        'id', 'promo', 'nom', 'domaine_id',  'description', 'cout', 'heures_par_semaine'
     ];
 
     /**

@@ -1,5 +1,88 @@
 <!doctype html>
 <html class="no-js" lang="en">
+@include('partials.head')
+
+<body>
+    @include('partials.sidbar')
+
+    <h1 style="text-align: center; padding: 30px;">Les Domaines de Formations</h1>
+
+    <section class="top-area" style="padding-top: 150px;">
+        <div class="clearfix"></div>
+        <section id="list-topics" class="list-topics">
+            <div class="container">
+                <div class="list-topics-content">
+                    <ul>
+                        @foreach($domaines as $domaine)
+                            <li>
+                                <div class="single-list-topics-content">
+                                    <div class="single-list-topics-icon">
+                                        <img src="{{ asset('storage/' . $domaine->logo) }}" alt="{{ $domaine->nom }}" style="height: 50px; margin-right: 10px;">
+                                    </div>
+                                    <h2><a href="{{ route('domaines.show', $domaine->id) }}">{{ $domaine->nom }}</a></h2>
+                                    <i>
+                                        <a href="{{ route('domaines.formations', $domaine->id) }}"> <!-- Lien vers les formations du domaine -->
+                                            <input type="button" value="Voir Formations...">
+                                        </a>
+                                    </i>
+                                </div>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div><!--/.container-->
+        </section>
+    </section>
+
+    @include('components.footer')
+</body>
+</html>
+
+
+{{-- <!doctype html>
+<html class="no-js" lang="en">
+@include('partials.head')
+
+<body>
+    @include('partials.sidbar')
+
+    <h1 style="text-align: center; padding: 30px;">Les Domaines de Formations</h1>
+
+    <section class="top-area" style="padding-top: 150px;">
+        <div class="clearfix"></div>
+        <section id="list-topics" class="list-topics">
+            <div class="container">
+                <div class="list-topics-content">
+                    <ul>
+                        @foreach($domaines as $domaine)
+                            <li>
+                                <div class="single-list-topics-content">
+                                    <div class="single-list-topics-icon">
+                                        <img src="{{ asset('storage/' . $domaine->logo) }}" alt="{{ $domaine->nom }}" style="height: 50px; margin-right: 10px;">
+                                    </div>
+                                    <h2><a href="{{ route('domaines.show', $domaine->id) }}">{{ $domaine->nom }}</a></h2>
+                                    <i>
+                                        <a href="{{ route('domaines.show', $domaine->id) }}">
+                                            <input type="button" value="Voir plus...">
+                                        </a>
+                                    </i>
+                                </div>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div><!--/.container-->
+        </section>
+    </section>
+
+    @include('components.footer')
+</body>
+</html> --}}
+
+
+
+{{-- <!doctype html>
+<html class="no-js" lang="en">
 
 <!-- <head> -->
 @include('partials.head')
@@ -83,7 +166,7 @@
                                     <i><a href="{{ route('log') }}"><input type="button" value="Voir plus..."></a></i>
                                 </div>
                             </li>
-                            <li>
+                            {{-- <li>
                                 <div class="single-list-topics-content">
                                     <div class="single-list-topics-icon">
                                         <img src="assets/images/3434597.png" alt=""
@@ -112,13 +195,13 @@
                                     <h2><a href="#">Autes...</a></h2>
                                     <i><a href="{{ route('listecours') }}"><input type="button" value="Voir plus..."></a></i>
                                 </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div><!--/.container-->
-            </section>   
+                            </li> --}}
+                        {{-- </ul>
+                    </div> --}}
+                {{-- </div><!--/.container--> --}}
+            {{-- </section> --}}
     <!-- </body> -->
 
-    @include('components.footer')
+    {{-- @include('components.footer') --}}
  <!-- </body> -->
-	</html>
+	{{-- </html> --}}

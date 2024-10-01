@@ -5,6 +5,7 @@ use App\Http\Controllers\DomaineController;
 use App\Http\Controllers\FormateurController;
 use App\Http\Controllers\FormationController;
 use App\Http\Controllers\EtudiantController;
+use App\Models\Domaine;
 use Illuminate\Support\Facades\Route;
 
 // Routes d'authentification
@@ -17,7 +18,8 @@ Route::get('/', function () {
 
 // Pages accessibles directement
 Route::get('/formation', function () {
-    return view('partials.formation');
+    $domaines = Domaine::all(); // Récupère tous les domaines
+    return view('partials.formation', compact('domaines'));
 })->name('formation');
 
 Route::get('/inscription', function () {

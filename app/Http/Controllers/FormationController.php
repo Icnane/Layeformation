@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Domaine;
 use App\Models\Formation;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
@@ -36,7 +37,10 @@ class FormationController extends Controller
      */
     public function create(): View
     {
-        return view('formations.create');
+        $domaines = Domaine::all();
+        // dd($domaines);
+         // Récupérer tous les domaines
+        return view('formations.create', compact('domaines')); // Passer $domaines à la vue
     }
 
     /**
@@ -51,7 +55,7 @@ class FormationController extends Controller
             'description' => 'required|string',
             'cout' => 'required|integer|min:0',
             'heures_par_semaine' => 'required|integer|min:1',
-            'domaine_id' => 'required|integer|exists:domaines,id', // Ajout de la validation pour domaine_id
+            'domaine_id' => 'nullable|integer|exists:domaines,id', // Ajout de la validation pour domaine_id
         ]);
 
         Formation::create($validatedData);
@@ -74,7 +78,8 @@ class FormationController extends Controller
      */
     public function edit(Formation $formation): View
     {
-        return view('formations.edit', compact('formation'));
+        $domaines = Domaine::all(); // Récupérer tous les domaines pour l'édition
+        return view('formations.edit', compact('formation', 'domaines')); // Passer $domaines à la vue
     }
 
     /**

@@ -13,17 +13,25 @@ class DomaineController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request): View
+    public function index(Request $request)
     {
-        $query = Domaine::query();
+        // Récupérer le terme de recherche
+        $search = $request->query('search');
 
-        if ($request->has('search')) {
-            $query->where('nom', 'like', '%' . $request->input('search') . '%');
+        // Si un terme de recherche est fourni, filtrer les domaines
+        if ($search) {
+            $domaines = Domaine::where('nom', 'like', '%' . $search . '%')
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
+            $noResults = $domaines->isEmpty(); // Définir la variable $noResults
+        } else {
+            // Sinon, récupérer tous les domaines
+            $domaines = Domaine::paginate(10);
+            $noResults = false; // Pas de résultats si aucun filtre n'est appliqué
         }
 
-        $domaines = $query->paginate(10);
-
-        return view('domaines.index', compact('domaines'));
+        // Retourner la vue avec les données
+        return view('domaines.index', compact('domaines', 'noResults'));
     }
 
     /**
@@ -98,6 +106,14 @@ class DomaineController extends Controller
     public function formations(Domaine $domaine): View
     {
         $formations = $domaine->formations; // Récupérer les formations associées
+        return view('domaines.formations', compact('domaine', 'formations'));
+    }
+
+    public function showFormations(Domaine $domaine): View
+    {
+        // Récupérer les formations associées au domaine
+        $formations = $domaine->formations; // Assurez-vous que la relation 'formations' est définie dans le modèle Domaine
+
         return view('domaines.formations', compact('domaine', 'formations'));
     }
 }

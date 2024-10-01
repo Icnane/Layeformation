@@ -14,9 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('formations', function (Blueprint $table) {
-            $table->integer('id')->primary();  // Définition manuelle de l'ID
+            $table->integer('id')->primary(); // Définition manuelle de l'ID
             $table->string('promo')->nullable();
-            $table->foreignId('domaine_id')->constrained('domaines')->onDelete('cascade'); // Lien vers domaines
+            $table->foreignId('domaine_id')->nullable()->constrained('domaines')->onDelete('cascade'); // Lien vers domaines
             $table->string('nom');
             $table->text('description');
             $table->integer('cout');
