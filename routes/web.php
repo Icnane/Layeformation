@@ -6,6 +6,8 @@ use App\Http\Controllers\FormateurController;
 use App\Http\Controllers\FormationController;
 use App\Http\Controllers\EtudiantController;
 use App\Models\Domaine;
+use App\Http\Controllers\ModuleController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 // Routes d'authentification
@@ -66,6 +68,14 @@ Route::get('/log', function () {
     return view('partials.log');
 })->name('log');
 
+Route::get('/parcour', function () {
+    return view('partials.parcour');
+})->name('parcour');
+
+Route::get('/modules', function () {
+    return view('partials.modules');
+})->name('modules');
+Route::get('/modules', [ModuleController::class, 'index'])->name('modules');
 // Page du tableau de bord
 Route::get('/dashboard', function () {
     return view('components.dashboard');
@@ -89,8 +99,29 @@ Route::resource('domaines', DomaineController::class);
 // Routes pour récupérer les formations d'un domaine
 Route::get('domaines/{domaine}/formations', [DomaineController::class, 'formations'])
     ->name('domaines.formations');
+//    module
+    Route::get('modules/formations', [ModuleController::class, 'modules'])
+    ->name('partials.modules');
 
 // Route pour récupérer le domaine d'une formation (facultatif)
 Route::get('formations/{formation}/domaine', [FormationController::class, 'showDomaine'])
     ->name('formations.domaine');
+
+    // Autres routes...
+    
+    Route::resource('formations', FormationController::class);
+    Route::resource('modules', ModuleController::class);
+    Route::resource('etudiants', EtudiantController::class);
+    Route::resource('formateurs', FormateurController::class);
+    Route::resource('domaines', DomaineController::class);
+    
+    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+Route::get('/modules', [ModuleController::class, 'index'])->name('modules'); // Cette ligne définit la route avec le nom 'modules'
+Route::resource('modules', ModuleController::class); // Cette ligne gère toutes les routes RESTful pour le ModuleController
+
+// Autres routes...
+
+Route::get('/modules/{module}/edit', [ModuleController::class, 'edit'])->name('modules.edit');
+
+ Route::resource('modules', ModuleController::class);
    

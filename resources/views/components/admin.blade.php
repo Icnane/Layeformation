@@ -127,6 +127,11 @@
         </div>
         <div class="tab-control">
             <button id="loginTab" class="active">Connexion</button>
+
+            @role('admin')
+    <a href="{{ route('formateur.create') }}" class="btn btn-success">Créer un formateur</a>
+@endrole
+
             <!-- <button id="registerTab">Inscription</button> -->
         </div>
         <div class="form-container">

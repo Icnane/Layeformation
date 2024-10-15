@@ -59,6 +59,8 @@
         </li> -->
 
         <!-- Menu profil (caché par défaut) -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
         <li class="nav-item dropdown" id="profileItem" style="display: none;">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="fas fa-user-circle"></i> Profil
@@ -296,23 +298,50 @@
         <li><a href="{{ route('apropos') }}">À propos de nous</a></li>
         <li><a href="{{ route('blog') }}">Blog</a></li>
         <li><a href="{{ route('contact') }}">Contact</a></li>
-		<li>
+        
+        <li class="nav-item dropdown" id="profileItem">
     @if (Auth::check())
-        <!-- Si l'utilisateur est connecté, afficher Déconnexion -->
-        <a href="{{ route('logout') }}" 
-           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-            Déconnexion
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-user-circle" style="font-size: 24px;"></i> <!-- Icône de profil avec taille forcée -->
         </a>
-
-        <!-- Formulaire de déconnexion caché -->
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+		<li><a class="dropdown-item" href="{{ route('parcour') }}">Mon parcours</a></li>
+    <li><a class="dropdown-item" href="#" onclick="editProfile()">Éditer mon profil</a></li>
+    <li><a class="dropdown-item" href="#" onclick="inviteFriend()">Inviter un ami</a></li> <!-- Ajout de l'option "Inviter un ami" -->
+    <li><hr class="dropdown-divider"></li> <!-- Ligne de séparation -->
+    <li>
+        <a class="dropdown-item" href="#" onclick="logout()">Déconnexion</a>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
             @csrf
         </form>
+    </li>
+</ul>
     @else
-        <!-- Si l'utilisateur n'est pas connecté, afficher Login -->
-        <a href="{{ route('login') }}">Login</a>
+        <a class="nav-link" href="{{ route('login') }}">Login</a>
     @endif
 </li>
+
+    </ul>
+</div>
+
+<!-- Scripts nécessaires -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+<script>
+function showProfilePage() {
+    alert("Afficher mon parcours");
+}
+
+function editProfile() {
+    alert("Éditer mon profil");
+}
+
+function logout() {
+    alert("Déconnexion en cours...");
+    document.getElementById('logout-form').submit(); // Soumet le formulaire de déconnexion
+}
+</script>
 
     </ul><!--/.nav -->
 </div><!-- /.navbar-collapse -->

@@ -4,58 +4,40 @@ namespace App\Http\Controllers;
 
 use App\Models\Domaine;
 use App\Models\Formation;
+use App\Models\Module;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
 class FormationController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    // Afficher la liste des formations
     public function index(Request $request): View
     {
-        $search = $request->input('search');
-
-        $formations = Formation::when($search, function ($query) use ($search) {
-            $query->where('nom', 'like', '%' . $search . '%')
-                  ->orWhere('promo', 'like', '%' . $search . '%')
-                  ->orWhere('id', 'like', '%' . $search . '%')
-                  ->orWhere('cout', 'like', '%' . $search . '%')
-                  ->orWhere('description', 'like', '%' . $search . '%');
-        })->orderBy('created_at', 'desc')
-          ->paginate(5);
-
-        return view('formations.index', [
-            'formations' => $formations,
-            'noResults' => $formations->isEmpty()
-        ]);
+        // Récupérer les formations avec pagination
+        $formations = Formation::with('domaine')->paginate(10); // 10 par page
+        $noResults = $formations->isEmpty(); // Vérifie si la collection est vide
+        $modules = Module::all();
+        return view('formations.index', compact('formations','modules', 'noResults'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    // Afficher le formulaire de création de formation
     public function create(): View
     {
-        $domaines = Domaine::all();
-        // dd($domaines);
-         // Récupérer tous les domaines
-        return view('formations.create', compact('domaines')); // Passer $domaines à la vue
+        $domaines = Domaine::all(); // Récupérer tous les domaines
+        return view('formations.create', compact('domaines'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    // Stocker une nouvelle formation
     public function store(Request $request): RedirectResponse
     {
         $validatedData = $request->validate([
-            'id' => 'required|integer|unique:formations,id',
             'promo' => 'nullable|string|max:255',
             'nom' => 'required|string|max:255',
             'description' => 'required|string',
             'cout' => 'required|integer|min:0',
             'heures_par_semaine' => 'required|integer|min:1',
-            'domaine_id' => 'nullable|integer|exists:domaines,id', // Ajout de la validation pour domaine_id
+            'domaine_id' => 'nullable|integer|exists:domaines,id',
         ]);
 
         Formation::create($validatedData);
@@ -64,37 +46,23 @@ class FormationController extends Controller
                          ->with('success', 'Formation créée avec succès.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Formation $formation): View
-    {
-        $domaine = $formation->domaine; // Récupération du domaine associé
-        return view('formations.show', compact('formation', 'domaine'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
+    // Afficher le formulaire d'édition de formation
     public function edit(Formation $formation): View
     {
-        $domaines = Domaine::all(); // Récupérer tous les domaines pour l'édition
-        return view('formations.edit', compact('formation', 'domaines')); // Passer $domaines à la vue
+        $domaines = Domaine::all(); // Récupérer tous les domaines
+        return view('formations.edit', compact('formation', 'domaines'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+    // Mettre à jour une formation existante
     public function update(Request $request, Formation $formation): RedirectResponse
     {
         $validatedData = $request->validate([
-            'id' => 'required|integer|unique:formations,id,' . $formation->id,
             'promo' => 'nullable|string|max:255',
             'nom' => 'required|string|max:255',
             'description' => 'required|string',
             'cout' => 'required|integer|min:0',
             'heures_par_semaine' => 'required|integer|min:1',
-            'domaine_id' => 'required|integer|exists:domaines,id', // Ajout de la validation pour domaine_id
+            'domaine_id' => 'required|integer|exists:domaines,id',
         ]);
 
         $formation->update($validatedData);
@@ -103,14 +71,18 @@ class FormationController extends Controller
                         ->with('success', 'Formation mise à jour avec succès.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+    // Supprimer une formation
     public function destroy(Formation $formation): RedirectResponse
     {
         $formation->delete();
 
         return redirect()->route('formations.index')
-                        ->with('success', 'Formation supprimée avec succès.');
+                         ->with('success', 'Formation supprimée avec succès.');
+    }
+
+    // Afficher les détails d'une formation
+    public function show(Formation $formation): View
+    {
+        return view('formations.show', compact('formation'));
     }
 }

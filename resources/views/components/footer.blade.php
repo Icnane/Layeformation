@@ -62,6 +62,20 @@
     <script src="{{ asset('assets/js/slick.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <script src="{{ asset('assets/js/custom.js') }}"></script>
+	<!-- Autres scripts -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Ton script personnalisé -->
+<script src="{{ asset('js/app.js') }}"></script>
+
+<!-- jQuery -->
+<script src="{{asset('https://code.jquery.com/jquery-3.5.1.slim.min.js')}}"></script>
+<!-- Popper.js -->
+<script src="{{asset('https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js')}}"></script>
+<!-- Bootstrap JS -->
+<script src="{{asset('https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')}}"></script>
 
 	</footer>
 	

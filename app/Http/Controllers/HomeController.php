@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Module;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        // Récupérer les modules avec leur formation associée
+        $modules = Module::with('training')->get();
+        
+        // Passer les modules à la vue
+        return view('welcome', compact('modules'));
     }
 }

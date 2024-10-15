@@ -21,8 +21,8 @@ class DomaineController extends Controller
         // Si un terme de recherche est fourni, filtrer les domaines
         if ($search) {
             $domaines = Domaine::where('nom', 'like', '%' . $search . '%')
-            ->orderBy('created_at', 'desc')
-            ->paginate(10);
+                ->orderBy('created_at', 'desc')
+                ->paginate(10);
             $noResults = $domaines->isEmpty(); // Définir la variable $noResults
         } else {
             // Sinon, récupérer tous les domaines
@@ -63,7 +63,9 @@ class DomaineController extends Controller
      */
     public function show(Domaine $domaine): View
     {
-        $domaine->load('formations'); // Charge les formations associées
+        // Charger les formations associées
+        $domaine->load('formations');
+
         return view('domaines.show', compact('domaine'));
     }
 

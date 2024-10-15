@@ -1,0 +1,155 @@
+.form-container {
+    float: left;
+    width: 60%; /* 60% de la largeur pour le formulaire */
+}
+
+.image-container {
+    float: right;
+    width: 35%; /* 35% de la largeur pour l'image */
+}
+
+.image-container img {
+    max-width: 100%;
+    border-radius: 10px; /* Bords arrondis pour l'image */
+}
+
+.card-body {
+    overflow: auto; /* Assure que le conteneur englobe les éléments flottants */
+    max-width: 600px; /* Ajuste la largeur totale du conteneur */
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ffcccc; /* Contour joli */
+    border-radius: 10px;
+    background-color: #fff; /* Fond blanc */
+}
+
+.form-control {
+    border: 2px solid #ffcccc; /* Rouge clair */
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.form-control:focus {
+    border-color: #ff6666; /* Un rouge légèrement plus foncé */
+    box-shadow: 0 0 5px rgba(255, 102, 102, 0.5);
+}
+
+.btn-primary {
+    background-color: #ff6666; /* Rouge clair */
+    border: none;
+    border-radius: 5px;
+}
+
+.btn-primary:hover {
+    background-color: #ff4d4d; /* Rouge plus foncé au survol */
+}
+
+
+.form-background {
+    position: absolute;
+    background-image: url('{{ asset('assets/images/WhatsApp_Image_2024-07-05_à_11.11.09_7c7222e6-removebg-preview.png') }}');
+    background-size: cover;
+    background-position: center;
+    filter: blur(5px);
+    opacity: 0.3;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.card {
+    position: relative;
+    z-index: 1;
+    background-color: transparent; /* Enlever l'arrière-plan de la carte */
+    border: 2px solid lightcoral; /* Contour rouge clair autour de la carte */
+    border-radius: 10px; /* Coins arrondis */
+}
+
+.card-header, .card-body {
+    background-color: rgba(255, 255, 255, 0.8); /* Fond semi-transparent pour la lisibilité */
+}
+
+.form-control {
+    width: 100%; /* Remplir toute la largeur de la colonne */
+    padding: 12px; /* Ajouter un peu de rembourrage */
+    border: 2px solid lightcoral; /* Contour rouge clair pour les champs */
+    border-radius: 5px; /* Coins arrondis pour les champs */
+}
+
+.form-control:focus {
+    border-color: red; /* Couleur de contour lors du focus */
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.5); /* Ombre lors du focus */
+}
+
+.button-container {
+    display: flex; /* Utiliser flexbox */
+    justify-content: space-between; /* Espacer les boutons */
+    margin-top: 20px; /* Espacement en haut des boutons */
+}
+
+.image-container {
+    display: flex; /* Utiliser flexbox */
+    justify-content: center; /* Centrer l'image */
+    align-items: flex-start; /* Alignement vertical */
+    margin-top: -40px; /* Ajuster la position de l'image */
+}
+
+.image-container img {
+    width: 100%; /* Ajuster la largeur de l'image */
+    max-width: 250px; /* Limiter la largeur maximale */
+}
+
+
+.form-background {
+    position: absolute;
+    background-image: url('{{ asset('assets/images/WhatsApp_Image_2024-07-05_à_11.11.09_7c7222e6-removebg-preview.png') }}');
+    background-size: cover;
+    background-position: center;
+    filter: blur(5px);
+    opacity: 0.3;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.card {
+    position: relative;
+    z-index: 1;
+    background-color: transparent; /* Enlever l'arrière-plan de la carte */
+    border: 2px solid lightcoral; /* Contour rouge clair autour de la carte */
+    border-radius: 10px; /* Coins arrondis */
+}
+
+.card-header, .card-body {
+    background-color: rgba(255, 255, 255, 0.8); /* Fond semi-transparent pour la lisibilité */
+}
+
+.form-control {
+    width: 100%; /* Remplir toute la largeur de la colonne */
+    padding: 12px; /* Ajouter un peu de rembourrage */
+    border: 2px solid lightcoral; /* Contour rouge clair pour les champs */
+    border-radius: 5px; /* Coins arrondis pour les champs */
+}
+
+.form-control:focus {
+    border-color: red; /* Couleur de contour lors du focus */
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.5); /* Ombre lors du focus */
+}
+
+.button-container {
+    margin-top: 20px; /* Espacement en haut des boutons */
+}
+
+.image-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.image-container img {
+    width: 100%; /* Ajuster la largeur de l'image */
+    max-width: 300px; /* Limiter la largeur maximale */
+}

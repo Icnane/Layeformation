@@ -37,7 +37,6 @@
 
         <!-- Bouton de retour -->
         <div class="bouton1">
-
             <div class="return-button">
                 <a class="btn btn-secondary" href="{{ route('formations.index') }}">Retour à la liste</a>
             </div>

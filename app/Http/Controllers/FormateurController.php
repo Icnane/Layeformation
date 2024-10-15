@@ -68,10 +68,12 @@ class FormateurController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Formateur $formateur): View
-    {
-        return view('formateurs.edit', compact('formateur'));
-    }
+    public function edit($id)
+{
+    $formateur = Formateur::findOrFail($id); // Récupérer l'étudiant par son ID
+    return view('formateurs.edit', compact('formateur')); // Passer l'étudiant à la vue
+}
+
 
     /**
      * Update the specified resource in storage.

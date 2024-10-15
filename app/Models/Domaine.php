@@ -9,15 +9,16 @@ use Illuminate\Database\Eloquent\Model;
 class Domaine extends Model
 {
     use HasFactory;
-    // Définissez la clé primaire
+
     protected $primaryKey = 'id';
-    public $incrementing = false;  // Désactivation de l'auto-incrémentation pour l'ID
+    public $incrementing = false;
+    protected $keyType = 'string';
 
     protected $fillable = ['id', 'nom', 'logo'];
 
     // Relation avec les formations
     public function formations()
     {
-        return $this->hasMany(Formation::class, 'domaine_id');
+        return $this->hasMany(Formation::class, 'domaine_id', 'id'); // Assurez-vous que le 'domaine_id' correspond à la clé primaire
     }
 }
