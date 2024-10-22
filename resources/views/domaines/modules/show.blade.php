@@ -1,21 +1,25 @@
-@extends('layouts.app')
+@extends('layouts.layout')
 
 @section('content')
-<div class="container">
-    <h1>{{ $module->title }}</h1>
+    <h1>{{ $module->titre }}</h1>
+    <p>{{ $module->description }}</p>
 
-    <p><strong>Description:</strong> {{ $module->description }}</p>
-
-    <p><strong>Vidéo:</strong></p>
-    @if($module->video_url)
-        <iframe width="560" height="315" src="{{ $module->video_url }}" frameborder="0" allowfullscreen></iframe>
-    @else
-        <p>Pas de vidéo disponible.</p>
+    {{-- Si un lien vidéo YouTube est présent, l'intégrer dans un iframe --}}
+    @if($module->lien_video)
+        <div class="mb-3">
+            <iframe width="560" height="315" src="{{ $module->lien_video }}" frameborder="0" allowfullscreen></iframe>
+        </div>
     @endif
 
-    <p><strong>Formation:</strong> {{ $module->formation->name ?? 'N/A' }}</p>
-    <p><strong>Domaine:</strong> {{ $module->formation->domain->name ?? 'N/A' }}</p>
+    {{-- Si une vidéo est téléversée localement, l'afficher dans un lecteur vidéo HTML5 --}}
+    @if($module->chemin_video)
+        <div class="mb-3">
+            <video width="560" height="315" controls>
+                <source src="{{ Storage::url($module->chemin_video) }}" type="video/mp4">
+                Votre navigateur ne supporte pas la balise vidéo.
+            </video>
+        </div>
+    @endif
 
     <a href="{{ route('modules.index') }}" class="btn btn-secondary">Retour à la liste</a>
-</div>
 @endsection

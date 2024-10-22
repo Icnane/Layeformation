@@ -4,38 +4,24 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Training; 
 
 class Module extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'title',
+        'formation_id', // Lien avec la formation
+        'titre',
         'description',
-        'image',
-        'domaine_id', // Si le module est lié à un domaine
-        'video_url', // Ajouté ici
-        'training_id', // Ajouté ici
-        'created_at',
-        'updated_at',
     ];
 
-    // Relation avec le domaine
-    public function domaine()
+    public function formation()
     {
-        return $this->belongsTo(Domaine::class);
+        return $this->belongsTo(Formation::class);
     }
 
-    // Si le module a plusieurs formations
-    public function formations()
+    public function chapitres()
     {
-        return $this->hasMany(Formation::class);
-    }
-
-    // Relation avec la formation, si applicable
-    public function training()
-    {
-        return $this->belongsTo(Training::class);
+        return $this->hasMany(Chapitre::class);
     }
 }

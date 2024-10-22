@@ -1019,4 +1019,10 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
     0%   {bottom:0px;}
     100%  {bottom:7px;}
 }
-/*========================Thank you=================
+/*========================Thank you=================*/
+
+.navbar-header {
+    display: flex; /* Assure que le conteneur utilise le modèle flexbox */
+    align-items: center; /* Centre les éléments verticalement */
+    justify-content: space-between; /* Optionnel: espace entre les éléments si nécessaire */
+}

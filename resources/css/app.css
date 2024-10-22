@@ -33,6 +33,10 @@
     border-color: #ff6666; /* Un rouge légèrement plus foncé */
     box-shadow: 0 0 5px rgba(255, 102, 102, 0.5);
 }
+.navbar-header{
+    display: flex;
+    align-items: center;
+}
 
 .btn-primary {
     background-color: #ff6666; /* Rouge clair */

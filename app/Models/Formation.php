@@ -21,4 +21,8 @@ class Formation extends Model
     {
         return $this->belongsTo(Domaine::class, 'domaine_id', 'id');
     }
+    public function modules()
+    {
+        return $this->hasMany(Module::class);
+    }
 }

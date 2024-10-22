@@ -25,6 +25,37 @@
         .menu {
             display: flex;
             gap: 20px;
+            list-style: none; /* Supprime les puces */
+            padding: 0; /* Supprime le padding */
+            margin: 0; /* Supprime la marge */
+        }
+
+        .menu li {
+            position: relative; /* Positionnement relatif pour le cercle */
+        }
+
+        .menu a {
+            text-decoration: none; /* Supprime le soulignement */
+            padding: 10px 15px; /* Ajoute de l'espace autour du texte */
+            color: #000; /* Couleur du texte */
+            transition: color 0.3s; /* Transition de la couleur du texte */
+        }
+
+        .menu a:hover {
+            color: #d2002e; /* Change la couleur du texte au survol */
+        }
+
+        /* Style du cercle au survol */
+        .menu li:hover::before {
+            content: ""; /* Nécessaire pour créer un pseudo-élément */
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 2px solid rgba(210, 0, 46, 0.5); /* Cercle rouge clair */
+            border-radius: 50%; /* Arrondir le cercle */
+            z-index: -1; /* Mettre le cercle derrière le texte */
         }
 
         /* Style du contenu principal */
@@ -35,6 +66,12 @@
         .content h2 {
             margin-top: 0;
             color: #d25800;
+            display: inline-block; /* Pour aligner avec le menu */
+        }
+
+        .nav-menu {
+            display: inline-block; /* Pour aligner le menu avec le titre */
+            margin-left: 20px; /* Espacement entre le titre et le menu */
         }
 
         .course-card {
@@ -104,6 +141,14 @@
     <!-- Contenu principal -->
     <div class="content" id="apprentissage">
         <h2>Mon apprentissage</h2>
+        <nav class="nav-menu">
+            <ul class="menu">
+            <li><a href="progression">Progression</a></li>
+                <li><a href="modules/formations">Mes Cours</a></li>
+                <li><a href="#">Mes Paiements</a></li>
+                <li><a href="#">Mes Certificats et Attestations</a></li>
+            </ul>
+        </nav>
         <br>
         <br>
         
@@ -113,13 +158,7 @@
                 <h3>Fondamentaux de l'IA Google</h3>
                 <p>Vous avez besoin de plus de temps pour terminer ce cours ? Repoussez votre date de fin souhaitée au 14/9/2024 PDT pour atteindre votre objectif.</p>
             </div>
-            <div class="course-actions">
-            <div class="course-actions">
-    <a href="{{ route('partials.modules') }}" class="btn btn-primary">Commencer</a>
-   
-       </div>
-                <p><a href="#">Repousser la date de fin</a></p>
-            </div>
+            
         </div>
         <div class="course-card">
             <h4>Suivi des objectifs hebdomadaires</h4>

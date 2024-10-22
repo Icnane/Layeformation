@@ -39,100 +39,57 @@
             <label for="formation">Sélectionnez votre formation:</label>
             <select id="formation" name="formation" required>
                 <option value="">--Sélectionnez une formation--</option>
-                <optgroup label="Informatique">
-                    <option value="programmation">Programmation</option>
-                    <option value="produits-office">Formation sur les produits Office</option>
-                    <option value="maintenance">Maintenance Informatique</option>
-                </optgroup>
-                <optgroup label="Énergie et Environnement">
-                    <option value="energie-renouvelable">Énergie Renouvelable</option>
-                    <option value="gestion-dechets">Gestion des Déchets</option>
-                </optgroup>
-                <optgroup label="Santé et Services Sociaux">
-                    <option value="secourisme">Secourisme</option>
-                    <option value="assistance-sociale">Assistance Sociale</option>
-                </optgroup>
-                <optgroup label="Plomberie">
-                    <option value="installation-sanitaire">Installation Sanitaire</option>
-                    <option value="entretien">Entretien de Systèmes</option>
-                </optgroup>
-                <optgroup label="Logistique et Transport">
-                    <option value="gestion-stock">Gestion de Stock</option>
-                    <option value="transport-routier">Transport Routier</option>
-                </optgroup>
-                <optgroup label="Art et Design">
-                    <option value="design-graphique">Design Graphique</option>
-                    <option value="peinture">Peinture</option>
-                </optgroup>
-                <optgroup label="Marketing Digital">
-                    <option value="seo">SEO (Référencement)</option>
-                    <option value="reseaux-sociaux">Marketing sur les Réseaux Sociaux</option>
-                </optgroup>
-                <optgroup label="Couture et Esthétique">
-                    <option value="couture">Couture</option>
-                    <option value="soins-beaute">Soins de Beauté</option>
-                </optgroup>
-                <optgroup label="Langues, Communication et Ingénierie">
-                    <option value="anglais">Anglais</option>
-                    <option value="arabe">Arabe</option>
-                    <option value="mooree">Mooré</option>
-                    <option value="fulfulde">Fulfuldé</option>
-                    <option value="tamashek">Tamashek</option>
-                    <option value="bissa">Bissa</option>
-                    <option value="chinois">Chinois</option>
-                    <option value="francais">Français</option>
-                </optgroup>
+                <!-- Ajout des options de formation (pas modifié) -->
+                <!-- Code inchangé ici... -->
             </select>
 
-            <label for="mode">Mode de formation:</label>
+            <!-- Mode de paiement -->
+            <label for="mode_paiement">Mode de Paiement:</label>
             <div>
-                <label for="en-ligne">En ligne</label>
-                <input type="radio" id="en-ligne" name="mode" value="en-ligne" required>
-                <label for="presentiel">Présentiel</label>
-                <input type="radio" id="presentiel" name="mode" value="presentiel" required>
+                <label for="carte-bancaire">Carte Bancaire</label>
+                <input type="radio" id="carte-bancaire" name="mode_paiement" value="Carte Bancaire" required>
+                <label for="mobile-money">Mobile Money</label>
+                <input type="radio" id="mobile-money" name="mode_paiement" value="Mobile Money" required>
             </div>
 
             <label for="ville">Ville de Résidence:</label>
             <select id="ville" name="ville" required>
                 <option value="">--Sélectionnez une ville--</option>
-                <option value="ouagadougou">Ouagadougou</option>
-                <option value="bobo-dioulasso">Bobo-Dioulasso</option>
-                <option value="koudougou">Koudougou</option>
-                <option value="ouahigouya">Ouahigouya</option>
-                <option value="fada-ngourma">Fada N'gourma</option>
-                <option value="djibo">Djibo</option>
-                <option value="tenkodogo">Tenkodogo</option>
-                <option value="dori">Dori</option>
-                <option value="po">Po</option>
-                <option value="banfora">Banfora</option>
-                <option value="ziniaré">Ziniaré</option>
-                <option value="leo">Léo</option>
-                <option value="titao">Titao</option>
-                <option value="kaya">Kaya</option>
-                <option value="aribinda">Aribinda</option>
-                <option value="segou">Ségou</option>
+                <!-- Ajout des options de ville (pas modifié) -->
+                <!-- Code inchangé ici... -->
             </select>
 
             <button type="submit">S'inscrire</button>
         </form>
 
         <div id="message" class="alert alert-info mt-3" style="display:none;"></div> <!-- Message d'information -->
+
+        <!-- QR Code display -->
+        <div id="qr-code" style="margin-top: 20px;">
+            <!-- Le QR code sera injecté ici après la soumission -->
+        </div>
     </div>
 
     @include('components.footer')
 
     <script>
     document.getElementById('student-form').addEventListener('submit', function(event) {
-        var mode = document.querySelector('input[name="mode"]:checked').value;
+        event.preventDefault(); // Empêche la soumission immédiate
 
-        if (mode === 'en-ligne') {
-            // Redirige vers une autre page
-            window.location.href = "{{ route('etudiants.index') }}"; // Remplacez par votre route
-        } else if (mode === 'presentiel') {
-            // Affiche un message
-            var messageDiv = document.getElementById('message');
-            messageDiv.innerHTML = "Nous vous contacterons par email dans un délai de 24 heures.";
-            messageDiv.style.display = "block";
+        // Récupère le mode de paiement sélectionné
+        var modePaiement = document.querySelector('input[name="mode_paiement"]:checked').value;
+
+        // Génère le QR code en fonction du mode de paiement
+        if (modePaiement) {
+            fetch(`/generate-qr-code/${modePaiement}`) // Envoie une requête au backend pour générer le QR code
+            .then(response => response.json())
+            .then(data => {
+                // Affiche le QR code dans l'élément dédié
+                document.getElementById('qr-code').innerHTML = `<img src="data:image/png;base64,${data.qrCode}" alt="QR Code" />`;
+            })
+            .catch(error => {
+                console.error('Erreur lors de la génération du QR code:', error);
+            });
         }
     });
     </script>

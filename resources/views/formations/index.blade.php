@@ -70,5 +70,5 @@
         {{ $formations->links() }}
     </div>
 </div>
-</div>
+
 @endsection

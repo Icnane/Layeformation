@@ -3,82 +3,74 @@
 namespace App\Http\Controllers;
 
 use App\Models\Module;
-use App\Models\Formation; // Assurez-vous d'importer le modèle Formation
+use App\Models\Formation;
+use App\Http\Requests\StoreModuleRequest;
+use App\Http\Requests\UpdateModuleRequest;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class ModuleController extends Controller
 {
-    public function index()
-    {
-        $modules = Module::all(); // Récupération de tous les modules
-        return view('domaines.modules.index', compact('modules')); // Correction du nom de la vue
+    // Afficher la liste des modules avec recherche et pagination
+   // Afficher la liste des modules avec recherche et pagination
+public function index(Request $request): View
+{
+    $search = $request->input('search'); // Recherche si un terme est spécifié
+
+    if ($search) {
+        $modules = Module::where('titre', 'like', '%' . $search . '%')
+            ->orWhere('description', 'like', '%' . $search . '%')
+            ->with('formation')
+            ->orderBy('created_at', 'desc')
+            ->paginate(5);
+    } else {
+        $modules = Module::with('formation')->orderBy('created_at', 'desc')->paginate(5);
     }
 
-    public function modules()
+    // Vérifiez si des modules ont été trouvés
+    $noResults = $modules->isEmpty(); // True si aucun module n'a été trouvé
+
+    return view('modules.index', compact('modules', 'search', 'noResults'));
+}
+
+
+    // Afficher le formulaire de création d'un module
+    public function create(): View
     {
-        $modules = Module::all(); // Récupérer les modules
-        return view('partials.modules', compact('modules'));
+        $formations = Formation::all();
+        return view('modules.create', compact('formations'));
     }
 
-    public function create()
+    // Stocker un nouveau module
+    public function store(StoreModuleRequest $request): RedirectResponse
     {
-        $formations = Formation::all(); // Récupérer toutes les formations
-        return view('domaines.modules.create', compact('formations')); // Passer les formations à la vue
-    }
-
-    public function getFormations()
-    {
-        $formations = Formation::all(); // Récupérer toutes les formations
-        return response()->json($formations); // Retourner les formations en JSON
-    }
-
-    public function store(Request $request)
-    {
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'video_url' => 'nullable|url',
-            'formation_id' => 'required|exists:formations,id',
-        ]);
-
-        // Vérifiez les données reçues
-        dd($request->all());
-
-        Module::create([
-            'title' => $request->title,
-            'description' => $request->description,
-            'video_url' => $request->video_url,
-            'formation_id' => $request->formation_id,
-        ]);
-
+        Module::create($request->validated());
         return redirect()->route('modules.index')->with('success', 'Module créé avec succès.');
     }
 
-    public function edit(Module $module)
+    // Afficher un module spécifique
+    public function show(Module $module): View
     {
-        return view('domaines.modules.edit', compact('module'));
+        return view('modules.show', compact('module'));
     }
 
-    public function update(Request $request, Module $module)
+    // Afficher le formulaire d'édition d'un module
+    public function edit(Module $module): View
     {
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'video_url' => 'nullable|url',
-            'formation_id' => 'required|exists:formations,id',
-        ]);
+        $formations = Formation::all();
+        return view('modules.edit', compact('module', 'formations'));
+    }
 
-        $module->update([
-            'title' => $request->title,
-            'description' => $request->description,
-            'video_url' => $request->video_url,
-            'formation_id' => $request->formation_id,
-        ]);
-
+    // Mettre à jour un module
+    public function update(UpdateModuleRequest $request, Module $module): RedirectResponse
+    {
+        $module->update($request->validated());
         return redirect()->route('modules.index')->with('success', 'Module mis à jour avec succès.');
     }
 
-    public function destroy(Module $module)
+    // Supprimer un module
+    public function destroy(Module $module): RedirectResponse
     {
         $module->delete();
         return redirect()->route('modules.index')->with('success', 'Module supprimé avec succès.');

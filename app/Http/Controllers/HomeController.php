@@ -25,7 +25,7 @@ class HomeController extends Controller
     public function index()
     {
         // Récupérer les modules avec leur formation associée
-        $modules = Module::with('training')->get();
+        $modules = Module::with('formation')->get();
         
         // Passer les modules à la vue
         return view('welcome', compact('modules'));

@@ -12,5 +12,11 @@ class DashboardController extends Controller
         $modules = Module::all(); // Récupération des modules
         return view('components.dashboard', compact('modules'));
     }
+    public function index()
+{
+    $modules = Module::all(); // Ou votre logique pour récupérer les modules
+    return view('components.dashboard', compact('modules'));
 }
+}
+
 

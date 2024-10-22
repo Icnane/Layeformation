@@ -244,7 +244,7 @@
                 <td>{{ $module->title }}</td>
                 <td>{{ $module->description }}</td>
                 <td><a href="{{ $module->video_url }}" target="_blank">Voir Vidéo</a></td>
-                <td>{{ $module->training->name }}</td>
+                <td>{{ $module->name }}</td>
                 <td>
                     <a href="{{ route('modules.edit', $module->id) }}" class="btn btn-warning btn-sm">Modifier</a>
                     <form action="{{ route('modules.destroy', $module->id) }}" method="POST" style="display:inline;">

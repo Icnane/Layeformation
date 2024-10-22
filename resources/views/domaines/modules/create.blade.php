@@ -1,35 +1,37 @@
-@extends('layouts.app')
+@extends('layouts.layout')
 
 @section('content')
-<div class="container">
-    <h1>Ajouter un Module</h1>
-    <form action="{{ route('modules.store') }}" method="POST">
-        @csrf
-        <div class="mb-3">
-            <label for="title" class="form-label">Titre</label>
-            <input type="text" class="form-control" id="title" name="title" required>
-        </div>
-        <div class="mb-3">
-            <label for="description" class="form-label">Description</label>
-            <textarea class="form-control" id="description" name="description"></textarea>
-        </div>
-        <div class="mb-3">
-            <label for="video_url" class="form-label">URL de la Vidéo</label>
-            <input type="url" class="form-control" id="video_url" name="video_url">
-        </div>
-        <div class="mb-3">
-            <label for="formation_id" class="form-label">Formation</label>
-            @if ($formations->isEmpty())
-                <div class="alert alert-warning">Aucune formation disponible.</div>
-            @else
-            <select name="formation_id" required>
-                @foreach($formations as $formation)
-                    <option value="{{ $formation->id }}">{{ $formation->title }}</option>
-                @endforeach
-            </select>
-            @endif
-        </div>
-        <button type="submit" class="btn btn-primary">Créer</button>
-    </form>
-</div>
+<h1>Ajouter un module</h1>
+
+<!-- Affichage des erreurs -->
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+<form action="{{ route('modules.store') }}" method="POST" enctype="multipart/form-data">
+    @csrf
+    <div class="mb-3">
+        <label>Titre:</label>
+        <input type="text" name="titre" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label>Description:</label>
+        <textarea name="description" class="form-control" required></textarea>
+    </div>
+    <div class="mb-3">
+        <label>Lien de la vidéo (YouTube):</label>
+        <input type="url" name="lien_video" class="form-control" value="{{ old('lien_video') }}">
+    </div>
+    <div class="mb-3">
+        <label>Téléverser une vidéo:</label>
+        <input type="file" name="chemin_video" class="form-control" accept="video/*">
+    </div>
+    <button type="submit" class="btn btn-primary">Ajouter</button>
+</form>
 @endsection
