@@ -9,14 +9,14 @@
 					</div>
 					<div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
                     <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-                        <li><a href="{{ route('welcome') }}">Accueil</a></li>
+                        <li><a href="{{ route('home') }}">Accueil</a></li>
                         <li><a href="{{ route('formation') }}">Formation</a></li>
                         <li><a href="{{ route('inscription') }}">Inscription</a></li>
                         <li><a href="{{ route('apropos') }}">À propos de nous</a></li>
                         <li><a href="{{ route('blog') }}">Blog</a></li>
                         <li><a href="{{ route('contact') }}">Contact</a></li>
 						<!-- Vérification si l'utilisateur a le rôle 'Admin' -->
-						@if(Auth::check() && Auth::user()->role === 'Admin')
+						@if(Auth::check() && Auth::user()->role === 'admin')
 							<li><a href="{{ route('dashboard') }}">Dashboard</a></li>
 						@endif
                     </ul><!--/.nav -->
@@ -78,4 +78,3 @@
 <script src="{{asset('https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')}}"></script>
 
 	</footer>
-	

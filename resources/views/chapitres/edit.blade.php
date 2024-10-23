@@ -1,8 +1,8 @@
 @extends('layouts.layout')
 
 @section('content')
-<div class="container">
-    <h2>Éditer le Chapitre : {{ $chapitre->titre }}</h2>
+<div class="card1">
+    <div class="card-header">Modifier le Chapitre</div>
 
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -14,40 +14,30 @@
         </div>
     @endif
 
-    <form action="{{ route('chapitres.update', $chapitre->id) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('chapitres.update', $chapitre->id) }}" method="POST" class="form-container">
         @csrf
         @method('PUT')
-        
+
         <div class="form-group">
-            <label for="titre">Titre</label>
-            <input type="text" class="form-control" id="titre" name="titre" value="{{ $chapitre->titre }}" required>
+            <label for="titre">Titre :</label>
+            <input type="text" name="titre" class="form-control" value="{{ old('titre', $chapitre->titre) }}" required>
         </div>
 
         <div class="form-group">
-            <label for="description">Description</label>
-            <textarea class="form-control" id="description" name="description">{{ $chapitre->description }}</textarea>
-        </div>
-
-        <div class="form-group">
-            <label for="module_id">Module</label>
-            <select class="form-control" id="module_id" name="module_id" required>
-                @foreach ($modules as $module)
-                    <option value="{{ $module->id }}" {{ $chapitre->module_id == $module->id ? 'selected' : '' }}>
-                        {{ $module->titre }}
-                    </option>
+            <label for="module_id">Module :</label>
+            <select name="module_id" class="form-control" required>
+                @foreach($modules as $module)
+                    <option value="{{ $module->id }}" {{ old('module_id', $chapitre->module_id) == $module->id ? 'selected' : '' }}>{{ $module->titre }}</option>
                 @endforeach
             </select>
         </div>
 
         <div class="form-group">
-            <label for="chemin_video">Vidéo</label>
-            <input type="file" class="form-control" id="chemin_video" name="chemin_video" accept="video/*">
-            @if ($chapitre->chemin_video)
-                <p>Vidéo actuelle : <a href="{{ asset('storage/' . $chapitre->chemin_video) }}" target="_blank">Voir Vidéo</a></p>
-            @endif
+            <label for="description">Description :</label>
+            <textarea name="description" class="form-control" required>{{ old('description', $chapitre->description) }}</textarea>
         </div>
 
-        <button type="submit" class="btn btn-primary">Mettre à Jour Chapitre</button>
+        <button type="submit" class="btn btn-success">Mettre à Jour</button>
     </form>
 </div>
 @endsection

@@ -23,7 +23,7 @@ class AuthController extends Controller
         if ($user && Hash::check($request->password, $user->password)) {
             // Connexion réussie, redirection vers la page de bienvenue
             auth()->login($user);
-            return redirect()->route('welcome');  // Redirection vers la page welcome après connexion réussie
+            return redirect()->route('/');  // Redirection vers la page welcome après connexion réussie
         } else {
             // Échec de la connexion, retour avec un message d'erreur
             return back()->withErrors(['email' => 'Identifiants incorrects.']);
@@ -50,6 +50,6 @@ class AuthController extends Controller
         ]);
 
         // Redirection vers la page de connexion avec un message de succès
-        return redirect()->route('login')->with('success', 'Compte créé avec succès, veuillez vous connecter.');
+        return redirect()->route('/')->with('success', 'Compte créé avec succès, veuillez vous connecter.');
     }
 }

@@ -13,27 +13,24 @@ use Illuminate\View\View;
 class ModuleController extends Controller
 {
     // Afficher la liste des modules avec recherche et pagination
-   // Afficher la liste des modules avec recherche et pagination
-public function index(Request $request): View
-{
-    $search = $request->input('search'); // Recherche si un terme est spécifié
+    public function index(Request $request): View
+    {
+        $search = $request->input('search'); // Recherche si un terme est spécifié
 
-    if ($search) {
-        $modules = Module::where('titre', 'like', '%' . $search . '%')
-            ->orWhere('description', 'like', '%' . $search . '%')
-            ->with('formation')
-            ->orderBy('created_at', 'desc')
-            ->paginate(5);
-    } else {
-        $modules = Module::with('formation')->orderBy('created_at', 'desc')->paginate(5);
+        if ($search) {
+            $modules = Module::where('titre', 'like', '%' . $search . '%')
+                ->orWhere('description', 'like', '%' . $search . '%')
+                ->with('formation')
+                ->orderBy('created_at', 'desc')
+                ->paginate(5);
+        } else {
+            $modules = Module::with('formation')->orderBy('created_at', 'desc')->paginate(5);
+        }
+
+        $noResults = $modules->isEmpty(); // True si aucun module n'a été trouvé
+
+        return view('modules.index', compact('modules', 'search', 'noResults'));
     }
-
-    // Vérifiez si des modules ont été trouvés
-    $noResults = $modules->isEmpty(); // True si aucun module n'a été trouvé
-
-    return view('modules.index', compact('modules', 'search', 'noResults'));
-}
-
 
     // Afficher le formulaire de création d'un module
     public function create(): View

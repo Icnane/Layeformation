@@ -18,8 +18,8 @@ Auth::routes();
 
 // Page d'accueil
 Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+    return view('home');
+})->name('home');
 
 // Pages accessibles directement
 Route::get('/formation', function () {

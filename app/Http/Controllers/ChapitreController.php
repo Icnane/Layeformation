@@ -7,11 +7,33 @@ use App\Models\Module;
 use App\Http\Requests\StoreChapitreRequest;
 use App\Http\Requests\UpdateChapitreRequest;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
-use Illuminate\Support\Facades\Storage; // Assurez-vous d'importer cette classe
+use Illuminate\Support\Facades\Storage;
 
 class ChapitreController extends Controller
 {
+    // Afficher la liste des chapitres
+    public function index(Request $request): View
+    {
+        $search = $request->input('search'); // Recherche si un terme est spécifié
+
+        if ($search) {
+            $chapitres = Chapitre::where('titre', 'like', '%' . $search . '%')
+                ->orWhere('description', 'like', '%' . $search . '%')
+                ->orWhere('id', 'like', '%' . $search . '%')
+                ->orderBy('created_at', 'desc')
+                ->paginate(5);
+
+            $noResults = $chapitres->isEmpty();
+        } else {
+            $chapitres = Chapitre::orderBy('created_at', 'desc')->paginate(5);
+            $noResults = false;
+        }
+
+        return view('chapitres.index', compact('chapitres', 'noResults'));
+    }
+
     // Afficher le formulaire de création d'un chapitre
     public function create(): View
     {
@@ -31,7 +53,7 @@ class ChapitreController extends Controller
 
         // Créer un nouveau chapitre avec les données validées
         Chapitre::create(array_merge($request->validated(), ['chemin_video' => $videoPath]));
-        return redirect()->route('chapitres.inde')->with('success', 'Chapitre créé avec succès.');
+        return redirect()->route('chapitres.index')->with('success', 'Chapitre créé avec succès.');
     }
 
     // Afficher un chapitre spécifique
@@ -63,7 +85,7 @@ class ChapitreController extends Controller
 
         // Mettre à jour les autres champs du chapitre
         $chapitre->update($request->validated());
-        return redirect()->route('chapitres.inde')->with('success', 'Chapitre mis à jour avec succès.');
+        return redirect()->route('chapitres.index')->with('success', 'Chapitre mis à jour avec succès.');
     }
 
     // Supprimer un chapitre
@@ -76,18 +98,6 @@ class ChapitreController extends Controller
 
         // Supprimer le chapitre
         $chapitre->delete();
-        return redirect()->route('chapitres.inde')->with('success', 'Chapitre supprimé avec succès.');
+        return redirect()->route('chapitres.index')->with('success', 'Chapitre supprimé avec succès.');
     }
-
-    // Ajoutez ceci dans votre ChapitreController
-
-    public function index(): View
-    {
-        // Récupérer tous les chapitres avec pagination
-        $chapitres = Chapitre::paginate(10); // Vous pouvez ajuster le nombre de chapitres par page
-        return view('chapitres.index', compact('chapitres')); // Ajustement du chemin
-    }
-    
-
-
 }

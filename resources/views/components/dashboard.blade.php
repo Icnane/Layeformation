@@ -148,6 +148,18 @@
                 <a href="{{ route('domaines.index') }}" style="color: inherit; text-decoration: none;">Domaines</a>
             </div>
 
+            <div class="nav-item" data-target="reports">
+                <a href="{{ route('modules.index') }}" style="color: inherit; text-decoration: none;">Modules</a>
+            </div>
+
+            <div class="nav-item" data-target="reports">
+                <a href="{{ route('chapitres.index') }}" style="color: inherit; text-decoration: none;">Chapitres</a>
+            </div>
+
+            <div class="nav-item" data-target="reports">
+                <a href="{{ route('quiz.index') }}" style="color: inherit; text-decoration: none;">Quiz</a>
+            </div>
+
            {{-- <div class="nav-item" data-target="settings">
                 <a href="{{ route('settings.index') }}" style="color: inherit; text-decoration: none;">Paramètres</a>
             </div>  --}}

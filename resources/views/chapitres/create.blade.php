@@ -1,46 +1,44 @@
-@extends('layouts.layout')
+<!doctype html>
+<html class="no-js" lang="en">
 
-@section('content')
-<div class="container">
-    <h2>Créer un Chapitre</h2>
+@include('partials.head')
 
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+<body>
+    @include('partials.sidbar')
+    @vite('resources/css/styles.css')
 
-    <form action="{{ route('chapitres.store') }}" method="POST" enctype="multipart/form-data">
-        @csrf
-        <div class="form-group">
-            <label for="titre">Titre</label>
-            <input type="text" class="form-control" id="titre" name="titre" required>
-        </div>
+    <div class="form-container">
+        <h2>Formulaire d'ajout de Chapitre</h2>
 
-        <div class="form-group">
-            <label for="description">Description</label>
-            <textarea class="form-control" id="description" name="description"></textarea>
-        </div>
+        <form action="{{ route('chapitres.store') }}" method="post" enctype="multipart/form-data"> <!-- Ajouter enctype pour le téléchargement de fichiers -->
+            @csrf
 
-        <div class="form-group">
-            <label for="module_id">Module</label>
-            <select class="form-control" id="module_id" name="module_id" required>
-                @foreach ($modules as $module)
+            <!-- Titre du chapitre -->
+            <label for="titre">Titre:</label>
+            <input type="text" id="titre" name="titre" required>
+
+            <!-- Sélection du module -->
+            <label for="module_id">Sélectionnez votre Module:</label>
+            <select id="module_id" name="module_id" required>
+                <option value="">--Sélectionnez un module--</option>
+                @foreach($modules as $module)
                     <option value="{{ $module->id }}">{{ $module->titre }}</option>
                 @endforeach
             </select>
-        </div>
 
-        <div class="form-group">
-            <label for="chemin_video">Vidéo</label>
-            <input type="file" class="form-control" id="chemin_video" name="chemin_video" accept="video/*">
-        </div>
+            <!-- Description du chapitre -->
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" rows="4" required></textarea>
 
-        <button type="submit" class="btn btn-primary">Créer Chapitre</button>
-    </form>
-</div>
-@endsection
+            <!-- Téléchargement de la vidéo -->
+            <label for="chemin_video">Télécharger la vidéo:</label>
+            <input type="file" id="chemin_video" name="chemin_video" accept="video/*"> <!-- Champ pour télécharger la vidéo -->
+
+            <!-- Bouton d'ajout -->
+            <input type="submit" value="Ajouter le Chapitre">
+        </form>
+    </div>
+
+    @include('components.footer')
+</body>
+</html>

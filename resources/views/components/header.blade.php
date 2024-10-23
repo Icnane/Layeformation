@@ -89,7 +89,7 @@
                 <!-- Formulaire de Connexion -->
                 <!-- <div id="login-form" class="form-container">
                     <h2>Connexion</h2>
-		
+
                     <form action="{{ route('login') }}" method="post">
     @csrf
     <div class="mb-3">
@@ -111,10 +111,10 @@
     </div>
 @endif
 
-                    
+
                     <!-- Texte Créer un compte -->
                     <!-- <p class="text-center mt-3">
-                        Vous n'avez pas de compte ? 
+                        Vous n'avez pas de compte ?
                         <a href="#" id="show-register-form">Créer un compte</a>
                     </p>
                 </div>  -->
@@ -148,10 +148,10 @@
                         </div>
                         <button type="submit" class="btn btn-primary">Créer un compte</button>
                     </form>
-                    
+
                     <!-- Texte Retour à la connexion -->
                     <!-- <p class="text-center mt-3">
-                        Déjà un compte ? 
+                        Déjà un compte ?
                         <a href="#" id="show-login-form">Se connecter</a>
                     </p>
                 </div>
@@ -175,7 +175,7 @@
         <!-- Statuts des cours à remplir dynamiquement -->
     <!-- </ul>
     <button onclick="logout()" class="btn btn-danger">Déconnexion</button>
-</div> --> 
+</div> -->
 
 <!-- <script> -->
     <!-- // Gestion de la connexion
@@ -292,13 +292,13 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
     <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-        <li><a href="{{ route('welcome') }}">Accueil</a></li>
+        <li><a href="{{ route('home') }}">Accueil</a></li>
         <li><a href="{{ route('formation') }}">Formation</a></li>
         <li><a href="{{ route('inscription') }}">Inscription</a></li>
         <li><a href="{{ route('apropos') }}">À propos de nous</a></li>
         <li><a href="{{ route('blog') }}">Blog</a></li>
         <li><a href="{{ route('contact') }}">Contact</a></li>
-        
+
         <li class="nav-item dropdown" id="profileItem">
     @if (Auth::check())
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -330,15 +330,15 @@
 
 <script>
 function showProfilePage() {
-    alert("Afficher mon parcours");
+    // alert("Afficher mon parcours");
 }
 
 function editProfile() {
-    alert("Éditer mon profil");
+    // alert("Éditer mon profil");
 }
 
 function logout() {
-    alert("Déconnexion en cours...");
+    // alert("Déconnexion en cours...");
     document.getElementById('logout-form').submit(); // Soumet le formulaire de déconnexion
 }
 </script>

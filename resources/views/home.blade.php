@@ -1,4 +1,4 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -20,4 +20,24 @@
         </div>
     </div>
 </div>
-@endsection
+@endsection --}}
+
+<!doctype html>
+<html class="no-js" lang="en">
+
+<!-- <head> -->
+@include('partials.head')
+<!-- </head> -->
+
+<!-- <body> -->
+	<!--header-top start -->
+	@include('components.header')
+    <!-- </header> -->
+
+	<!--/.list-topics-->
+	<!--list-topics end-->
+
+    @include('partials.body')
+ <!-- </body> -->
+	</html>
+

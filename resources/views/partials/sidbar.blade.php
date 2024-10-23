@@ -22,7 +22,7 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
     <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-        <li><a href="{{ route('welcome') }}">Accueil</a></li>
+        <li><a href="{{ route('home') }}">Accueil</a></li>
         <li><a href="{{ route('formation') }}">Formation</a></li>
         <li><a href="{{ route('inscription') }}">Inscription</a></li>
         <li><a href="{{ route('apropos') }}">À propos de nous</a></li>
