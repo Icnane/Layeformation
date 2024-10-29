@@ -1,21 +1,17 @@
 @extends('layouts.layout')
 
 @section('content')
-<div class="container">
-    <h2>{{ $chapitre->titre }}</h2>
+    <h1>{{ $chapitre->titre }}</h1>
+    <p>{{ $chapitre->description }}</p>
 
-    <p><strong>Description :</strong> {{ $chapitre->description }}</p>
-
-    @if ($chapitre->chemin_video)
-        <p><strong>Vidéo :</strong></p>
-        <video controls>
-            <source src="{{ asset('storage/' . $chapitre->chemin_video) }}" type="video/mp4">
-            Votre navigateur ne supporte pas la lecture de vidéos.
-        </video>
-    @endif
-
-    <p><strong>Module :</strong> {{ $chapitre->module->titre }}</p>
-
-    <a href="{{ route('chapitres.index') }}" class="btn btn-secondary">Retour à la liste</a>
-</div>
+    <h2>Vidéos :</h2>
+    @foreach ($chapitre->videos as $video)
+        <div>
+            <h3>{{ $video->titre }}</h3>
+            <video width="320" height="240" controls>
+                <source src="{{ asset('path_to_your_video_directory/' . $video->fichier) }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    @endforeach
 @endsection

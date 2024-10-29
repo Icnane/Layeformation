@@ -18,18 +18,17 @@ class ChapitreController extends Controller
     {
         $search = $request->input('search'); // Recherche si un terme est spécifié
 
-        if ($search) {
-            $chapitres = Chapitre::where('titre', 'like', '%' . $search . '%')
-                ->orWhere('description', 'like', '%' . $search . '%')
-                ->orWhere('id', 'like', '%' . $search . '%')
-                ->orderBy('created_at', 'desc')
-                ->paginate(5);
+        // Recherche des chapitres selon les critères
+        $chapitres = Chapitre::query()
+            ->when($search, function ($query) use ($search) {
+                return $query->where('titre', 'like', '%' . $search . '%')
+                    ->orWhere('description', 'like', '%' . $search . '%')
+                    ->orWhere('id', 'like', '%' . $search . '%');
+            })
+            ->orderBy('created_at', 'desc')
+            ->paginate(5);
 
-            $noResults = $chapitres->isEmpty();
-        } else {
-            $chapitres = Chapitre::orderBy('created_at', 'desc')->paginate(5);
-            $noResults = false;
-        }
+        $noResults = $chapitres->isEmpty();
 
         return view('chapitres.index', compact('chapitres', 'noResults'));
     }
@@ -40,16 +39,16 @@ class ChapitreController extends Controller
         // Récupérer tous les modules pour les afficher dans le formulaire
         $modules = Module::all();
         return view('chapitres.create', compact('modules'));
+    
     }
 
     // Stocker un nouveau chapitre
     public function store(StoreChapitreRequest $request): RedirectResponse
     {
         // Gérer le téléchargement de la vidéo
-        $videoPath = null;
-        if ($request->hasFile('chemin_video')) {
-            $videoPath = $request->file('chemin_video')->store('videos', 'public'); // Enregistre la vidéo dans le dossier public/videos
-        }
+        $videoPath = $request->hasFile('chemin_video') 
+            ? $request->file('chemin_video')->store('videos', 'public') 
+            : null;
 
         // Créer un nouveau chapitre avec les données validées
         Chapitre::create(array_merge($request->validated(), ['chemin_video' => $videoPath]));
@@ -59,7 +58,9 @@ class ChapitreController extends Controller
     // Afficher un chapitre spécifique
     public function show(Chapitre $chapitre): View
     {
-        return view('chapitres.show', compact('chapitre'));
+        // Charger le module associé au chapitre
+        $module = $chapitre->module; // Assurez-vous que la relation 'module' est définie dans le modèle Chapitre
+        return view('chapitres.show', compact('chapitre', 'module'));
     }
 
     // Afficher le formulaire d'édition d'un chapitre
@@ -100,4 +101,7 @@ class ChapitreController extends Controller
         $chapitre->delete();
         return redirect()->route('chapitres.index')->with('success', 'Chapitre supprimé avec succès.');
     }
+   
+    
+
 }

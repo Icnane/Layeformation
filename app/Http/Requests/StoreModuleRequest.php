@@ -11,12 +11,12 @@ class StoreModuleRequest extends FormRequest
         return true; // Autoriser la requête
     }
 
-    public function rules()
-    {
-        return [
-            'formation_id' => 'required|exists:formations,id',
-            'titre' => 'required|string|max:255',
-            'description' => 'nullable|string',
-        ];
-    }
+    public function rules(): array
+{
+    return [
+        'titre' => 'required|string|max:255',
+        'description' => 'nullable|string',
+        'formation_id' => 'required|exists:formations,id',
+    ];
+}
 }

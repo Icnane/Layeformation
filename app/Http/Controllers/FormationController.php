@@ -79,7 +79,14 @@ class FormationController extends Controller
         return redirect()->route('formations.index')
                          ->with('success', 'Formation supprimée avec succès.');
     }
+    public function showInscriptionForm()
+    {
+        // Récupérer toutes les formations
+        $formations = Formation::all();
 
+        // Passer les formations à la vue
+        return view('partials.inscription', compact('formations'));
+    }
     // Afficher les détails d'une formation
     public function show(Formation $formation): View
     {

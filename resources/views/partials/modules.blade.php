@@ -2,17 +2,14 @@
 <html lang="en">
 <head>
     @include('partials.head')
-    
-    
     @vite('resources/css/style.css')
-    
 </head>
 <body>
     <div class="navhauteur">
         <h2>Mon apprentissage</h2>
         <nav class="nav-menu">
             <ul class="menu">
-                <li><a href="#" onclick="showSection('progression')">Progression</a></li>
+                <li><a href="{{ route('progression') }}">Progression</a></li>
                 <li><a href="#" onclick="showSection('mes-cours')">Mes Cours</a></li>
                 <li><a href="#" onclick="showSection('mes-paiements')">Mes Paiements</a></li>
                 <li><a href="#" onclick="showSection('mes-certificats')">Mes Certificats et Attestations</a></li>
@@ -21,41 +18,39 @@
     </div>
 
     <div class="content" id="contentArea">
-        <!-- Contenu dynamique sera chargé ici -->
+        <!-- Section Progression -->
         <div id="progression" class="section">
-            <!-- Intégrer le contenu de la progression ici -->
             <h1>Progression</h1>
             <p>Affichage de la progression ici...</p>
         </div>
 
+        <!-- Section Mes Cours -->
         <div id="mes-cours" class="section" style="display:none;">
-            <!-- Contenu des cours -->
             <h1>Mes Cours</h1>
             <ul id="moduleList">
                 @foreach($modules as $index => $module)
                     <li>
                         <div class="circle" id="circle{{ $index }}"></div>
-                        <a href="#" class="sidebar-module" data-module-index="{{ $index }}">{{ $module->title }}</a>
+                        <a href="#" class="sidebar-module" data-module-index="{{ $index }}">{{ $module->titre }}</a>
                         <ul class="chapters" id="chapters{{ $index }}">
-                            <li><a href="#" class="chapter" data-module-index="{{ $index }}" data-chapter="1">Chapitre 1</a></li>
-                            <li><a href="#" class="chapter" data-module-index="{{ $index }}" data-chapter="2">Chapitre 2</a></li>
-                            <li><a href="#" class="chapter" data-module-index="{{ $index }}" data-chapter="3">Chapitre 3</a></li>
+                            @foreach($module->chapitres as $chapitre)
+                                <li><a href="#" class="chapter" data-module-index="{{ $index }}" data-chapter="{{ $chapitre->id }}">{{ $chapitre->titre }}</a></li>
+                            @endforeach
                         </ul>
                     </li>
                 @endforeach
             </ul>
         </div>
 
+        <!-- Section Mes Paiements -->
         <div id="mes-paiements" class="section" style="display:none;">
-            <!-- Contenu des paiements -->
             <h1>Mes Paiements</h1>
             <p>Affichage des paiements ici...</p>
         </div>
 
+        <!-- Section Mes Certificats -->
         <div id="mes-certificats" class="section" style="display:none;">
-            <!-- Contenu des certificats et attestations -->
             <h1>Mes Certificats et Attestations</h1>
-            <p>Affichage des certificats ici...</p>
             <input type="text" id="attestationName" placeholder="Votre nom et prénom" />
             <button id="downloadAttestationButton">Télécharger Maintenant</button>
         </div>
@@ -80,7 +75,7 @@
             }
         });
 
-        // Fonction pour générer le PDF de l'attestation (comme défini précédemment)
+        // Fonction pour générer le PDF de l'attestation
         function generatePDF(name) {
             const doc = new jsPDF();
             const courseName = 'Nom du cours'; // Remplacer par le cours terminé
@@ -105,17 +100,3 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -12,13 +12,26 @@ class Chapitre extends Model
     protected $fillable = [
         'titre',
         'description',
-        'chemin_video',
-        'module_id',
+        'chemin_video', // si vous avez ce champ
+        'module_id', // Ajoutez ceci
     ];
 
-    // Relation avec le modèle Module
+    // Définir la relation avec Module
+    
     public function module()
     {
         return $this->belongsTo(Module::class);
     }
-}
+
+    public function resources()
+    {
+        return $this->hasMany(Resource::class);
+    }
+
+    public function chapitres()
+    {
+        return $this->hasMany(Chapitre::class);
+    }
+
+    }
+

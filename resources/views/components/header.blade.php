@@ -306,7 +306,7 @@
         </a>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 		<li><a class="dropdown-item" href="{{ route('parcour') }}">Mon parcours</a></li>
-    <li><a class="dropdown-item" href="#" onclick="editProfile()">Éditer mon profil</a></li>
+    <li><a class="dropdown-item" href="{{route('editprofil')}}" onclick="editProfile()">Éditer mon profil</a></li>
     <li><a class="dropdown-item" href="#" onclick="inviteFriend()">Inviter un ami</a></li> <!-- Ajout de l'option "Inviter un ami" -->
     <li><hr class="dropdown-divider"></li> <!-- Ligne de séparation -->
     <li>

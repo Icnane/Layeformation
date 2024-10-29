@@ -12,8 +12,8 @@ class CreateChapitresTable extends Migration
             $table->id();
             $table->string('titre');
             $table->text('description')->nullable();
-            $table->string('chemin_video')->nullable();
-            $table->foreignId('module_id')->constrained()->onDelete('cascade'); // Lien vers le module
+            $table->string('chemin_video')->nullable(); // Chemin de la vidéo
+            $table->foreignId('module_id')->constrained()->onDelete('cascade'); // Relation avec le module
             $table->timestamps();
         });
     }
@@ -23,3 +23,4 @@ class CreateChapitresTable extends Migration
         Schema::dropIfExists('chapitres');
     }
 }
+

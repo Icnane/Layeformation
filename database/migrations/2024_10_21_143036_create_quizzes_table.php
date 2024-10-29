@@ -11,9 +11,7 @@ class CreateQuizzesTable extends Migration
         Schema::create('quizzes', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('chapitre_id'); // Lien vers la table chapitres
-            $table->string('question');
-            $table->json('options'); // Options de réponse (stockées en JSON)
-            $table->string('correct_option'); // Option correcte
+            $table->string('titre'); // Titre du quiz
             $table->timestamps();
 
             // Déclaration de la clé étrangère

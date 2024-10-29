@@ -22,8 +22,17 @@
             </div>
         @endif
 
-        <p>Module: {{ $resource->module->nom }}</p>
-        <p>Chapitre: {{ $resource->chapitre->titre }}</p>
+        <p><strong>Module :</strong> {{ $resource->module->nom }}</p>
+        <p><strong>Chapitre :</strong> {{ $resource->chapitre->titre }}</p>
+
+        <div class="mt-4">
+            <form action="{{ route('resources.destroy', $resource->id) }}" method="POST" style="display:inline;">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger">Supprimer</button>
+            </form>
+            <a class="btn btn-secondary" href="{{ route('resources.index') }}">Retour à la liste</a>
+        </div>
     </div>
 </div>
 @endsection

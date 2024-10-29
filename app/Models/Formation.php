@@ -21,6 +21,15 @@ class Formation extends Model
     {
         return $this->belongsTo(Domaine::class, 'domaine_id', 'id');
     }
+
+    public function showInscriptionForm()
+{
+    // Récupérer toutes les formations
+    $formations = Formation::all(); // ou une méthode appropriée pour récupérer les formations
+
+    // Passer les formations à la vue
+    return view('partials.inscription', compact('formations'));
+}
     public function modules()
     {
         return $this->hasMany(Module::class);

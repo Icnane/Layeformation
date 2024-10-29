@@ -43,11 +43,21 @@ class EtudiantController extends Controller
     // Stocker un nouvel étudiant
     public function store(StoreEtudiantRequest $request): RedirectResponse
     {
-        // dd($request->validated());
-
-        Etudiant::create($request->validated()); // Créer l'étudiant avec les données validées
+        // Valider les données et préparer les champs requis pour la création
+        $validatedData = $request->validated();
+    
+        // Si le mode de paiement est sélectionné, l'enregistrer
+        if ($request->filled('mode_paiement')) {
+            $validatedData['mode_paiement'] = $request->input('mode_paiement');
+        }
+    
+        // Créer l'étudiant avec les données validées
+        Etudiant::create($validatedData);
+    
+        // Rediriger vers l'index des étudiants avec un message de succès
         return redirect()->route('etudiants.index')->with('success', 'Étudiant créé avec succès.');
     }
+    
 
     // Afficher un étudiant spécifique
     public function show(Etudiant $etudiant): View

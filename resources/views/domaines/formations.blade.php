@@ -12,7 +12,7 @@
      <!-- Inclure le fichier CSS via Vite -->
      
      @vite('resources/css/style.css')
-    
+     @vite('resources/css/styles.css')
 
     <h1 style="text-align: center; padding: 30px;">Formations dans le Domaine: {{ $domaine->nom }}</h1>
 

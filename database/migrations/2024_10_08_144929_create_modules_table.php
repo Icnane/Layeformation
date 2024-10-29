@@ -10,9 +10,9 @@ class CreateModulesTable extends Migration
     {
         Schema::create('modules', function (Blueprint $table) {
             $table->id();
-            $table->string('titre');
-            $table->text('description');
-            $table->foreignId('formation_id')->constrained('formations')->onDelete('cascade'); // Lien avec la table formations
+            $table->foreignId('formation_id')->constrained();
+            $table->string('titre'); 
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

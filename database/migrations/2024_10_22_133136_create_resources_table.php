@@ -12,12 +12,12 @@ class CreateResourcesTable extends Migration
     {
         Schema::create('resources', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->nullable();
-            $table->text('text_content')->nullable(); // Pour les textes longs
-            $table->string('video_path')->nullable(); // Pour les vidéos
-            $table->foreignId('module_id')->constrained()->onDelete('cascade');
-            $table->foreignId('chapitre_id')->constrained()->onDelete('cascade');
-            $table->timestamps();
+            $table->string('title')->nullable(); // Titre de la ressource
+            $table->text('text_content')->nullable(); // Contenu texte long
+            $table->string('video_path')->nullable(); // Chemin de la vidéo
+            $table->foreignId('module_id')->constrained()->onDelete('cascade'); // ID du module associé
+            $table->foreignId('chapitre_id')->constrained()->onDelete('cascade'); // ID du chapitre associé
+            $table->timestamps(); // Dates de création et de mise à jour
         });
     }
 

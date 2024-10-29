@@ -10,8 +10,12 @@ use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ModuleController;
 use App\Http\Controllers\ChapitreController;
+use App\Http\Controllers\editprofilController;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\ResourceController;
+use App\Http\Controllers\ProgressionController;
+use App\Http\Controllers\parcourController;
+use App\Http\Controllers\MesCoursController;
 
 // Routes d'authentification
 Auth::routes();
@@ -107,10 +111,16 @@ Route::put('/modules/{module}', [ModuleController::class, 'update'])->name('modu
 Route::delete('/modules/{module}', [ModuleController::class, 'destroy'])->name('modules.destroy');
 Route::resource('modules', ModuleController::class);
 
-Route::get('/mes-cours', function () {
-    return view('partials.mes-cours'); // Vue pour mes cours
-})->name('mes-cours');
+Route::get('/progression', function () {
+    return view('partials.progression');
+})->name('progression');
 
+
+Route::get('/mescours', function () {
+    return view('partials.mescours'); // Vue pour mes cours
+})->name('mescours');
+
+Route::get('/mescours', [MesCoursController::class, 'index'])->name('mescours');
 Route::get('/mes-paiements', function () {
     return view('partials.mes-paiements'); // Vue pour mes paiements
 })->name('mes-paiements');
@@ -119,6 +129,8 @@ Route::get('/mes-certificats', function () {
     return view('partials.mes-certificats'); // Vue pour mes certificats et attestations
 })->name('mes-certificats');
 
+Route::get('/parcour', [ModuleController::class, 'parcour'])->name('modules.parcour');
+Route::get('/parcour', [parcourController::class, 'parcour'])->name('parcour');
 
 // Routes pour les Modules
 Route::resource('modules', ModuleController::class);
@@ -132,4 +144,21 @@ Route::resource('quiz', QuizController::class);
 Route::resource('resources', ResourceController::class);
 
 Route::get('/chapitres', [ChapitreController::class, 'index'])->name('chapitres.index');
+Route::get('/editprofil', [editprofilController::class, 'edit'])->name('editprofil');
+Route::put('/editprofil', [editprofilController::class, 'update'])->name('editprofil.update');
+use App\Http\Controllers\ParcoursController;
+use App\Models\Formation;
 
+// Route::get('/parcour/{id}', [parcourController::class, 'parcour'])->name('parcour');
+
+Route::get('/api/modules', [ModuleController::class, 'index']);
+Route::get('/chapitres/{chapitre}', [ChapitreController::class, 'show'])->name('chapitres.show');
+// Récupérer les chapitres pour un module spécifique
+Route::get('/api/modules/{module}/chapitres', [ModuleController::class, 'showChapters']);
+Route::get('/parcour', [parcourController::class, 'parcour'])->name('parcour');
+
+Route::get('/resources', [ResourceController::class, 'index'])->name('resources.index');
+Route::get('/etudiants/create', [EtudiantController::class, 'create'])->name('etudiants.create');
+Route::get('/inscription', [FormationController::class, 'showInscriptionForm'])->name('inscription');
+
+Route::get('/progression', [ProgressionController::class, 'index'])->name('progression');
