@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Quiz;
 use App\Models\Chapitre;
 use App\Models\Question;
-use App\Models\Option; // Assurez-vous d'importer le modèle Option
+use App\Models\Option;
 use App\Http\Requests\StoreQuizRequest;
 use App\Http\Requests\UpdateQuizRequest;
 use Illuminate\Http\RedirectResponse;
@@ -14,92 +14,93 @@ use Illuminate\View\View;
 
 class QuizController extends Controller
 {
-    // Afficher la liste des quizzes avec recherche et pagination
     public function index(Request $request): View
     {
-        $search = $request->input('search'); // Recherche si un terme est spécifié
+        $search = $request->input('search'); 
 
-        if ($search) {
-            $quizzes = Quiz::where('titre', 'like', '%' . $search . '%')
-                ->with('chapitre')
-                ->orderBy('created_at', 'desc')
-                ->paginate(5);
-        } else {
-            $quizzes = Quiz::with('chapitre')->orderBy('created_at', 'desc')->paginate(5);
-        }
+        $quizzes = Quiz::with('chapitre')
+            ->when($search, function ($query) use ($search) {
+                return $query->where('titre', 'like', '%' . $search . '%');
+            })
+            ->orderBy('created_at', 'desc')
+            ->paginate(5);
 
-        // Vérifiez si des quizzes ont été trouvés
-        $noResults = $quizzes->isEmpty(); // True si aucun quiz n'a été trouvé
+        $noResults = $quizzes->isEmpty();
 
         return view('quiz.index', compact('quizzes', 'search', 'noResults'));
     }
 
-    // Afficher le formulaire de création d'un quiz
     public function create(): View
     {
         $chapitres = Chapitre::all();
-        return view('quiz.create', compact('chapitres'));
+        return view('quizzes.create', compact('chapitres'));
     }
 
-    // Stocker un nouveau quiz
-    public function store(Request $request): RedirectResponse
+    public function store(StoreQuizRequest $request): RedirectResponse
     {
-        $request->validate([
-            'titre' => 'required|string',
-            'chapitre_id' => 'required|exists:chapitres,id',
-            'questions' => 'required|array|min:10', // S'assurer qu'il y a au moins 10 questions
-            'questions.*.text' => 'required|string',
-            'questions.*.type' => 'required|string|in:multiple,true_false',
-            'questions.*.options' => 'required|array',
-            'questions.*.options.*' => 'required|string', // Chaque option doit être une chaîne
-        ]);
-
-        // Création du quiz
-        $quiz = Quiz::create($request->only(['titre', 'chapitre_id']));
-
+        // Créer le quiz
+        $quizzes = Quiz::create($request->only(['titre', 'chapitre_id']));
+    
+        if (!$quizzes) {
+            // Gérer l'erreur de création du quiz
+            return redirect()->back()->withErrors('Erreur lors de la création du quiz.');
+        }
+    
         foreach ($request->questions as $questionData) {
-            // Créer les questions avec leurs options ici
-            $question = new Question();
-            $question->text = $questionData['text'];
-            $question->type = $questionData['type'];
-            $question->quiz_id = $quiz->id; // Lier le quiz à la question
-
-            $question->save();
-
-            // Sauvegarder les options
+            $options = json_encode($questionData['options']);
+    
+            // Créer la question
+            $question = $quizzes->questions()->create([
+                'text' => $questionData['text'],
+                'type' => $questionData['type'],
+                'options' => $options,
+                'quizzes_id' => $quizzes->id,
+            ]);
+            
+            // Créer les options associées
             foreach ($questionData['options'] as $optionText) {
-                $option = new Option();
-                $option->text = $optionText;
-                $option->question_id = $question->id; // Lier l'option à la question
-                $option->save();
+                $question->options()->create(['text' => $optionText]);
             }
         }
-
+    
         return redirect()->route('quiz.index')->with('success', 'Quiz créé avec succès.');
     }
+    
+    
 
-    // Afficher un quiz spécifique
-    public function show(Quiz $quiz): View
+    public function show(Quiz $quizzes): View
     {
-        return view('quiz.show', compact('quiz'));
+        return view('quiz.show', compact('quizzes'));
     }
 
-    // Afficher le formulaire d'édition d'un quiz
     public function edit(Quiz $quiz): View
     {
         $chapitres = Chapitre::all();
-        $questions = $quiz->questions; // Récupérer les questions associées au quiz
+        $questions = $quiz->questions; 
         return view('quiz.edit', compact('quiz', 'chapitres', 'questions'));
     }
 
-    // Mettre à jour un quiz
     public function update(UpdateQuizRequest $request, Quiz $quiz): RedirectResponse
     {
-        $quiz->update($request->validated());
+        $quiz->update($request->only(['titre', 'chapitre_id']));
+
+        foreach ($request->questions as $questionData) {
+            $question = $quiz->questions()->updateOrCreate(
+                ['id' => $questionData['id'] ?? null], 
+                ['text' => $questionData['text'], 'type' => $questionData['type']]
+            );
+
+            foreach ($questionData['options'] as $optionText) {
+                $question->options()->updateOrCreate(
+                    ['text' => $optionText], 
+                    ['text' => $optionText]
+                );
+            }
+        }
+
         return redirect()->route('quiz.index')->with('success', 'Quiz mis à jour avec succès.');
     }
 
-    // Supprimer un quiz
     public function destroy(Quiz $quiz): RedirectResponse
     {
         $quiz->delete();

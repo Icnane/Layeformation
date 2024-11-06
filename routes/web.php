@@ -16,7 +16,9 @@ use App\Http\Controllers\ResourceController;
 use App\Http\Controllers\ProgressionController;
 use App\Http\Controllers\parcourController;
 use App\Http\Controllers\MesCoursController;
-
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Response;
+use App\Http\Controllers\VideoController;
 // Routes d'authentification
 Auth::routes();
 
@@ -162,3 +164,23 @@ Route::get('/etudiants/create', [EtudiantController::class, 'create'])->name('et
 Route::get('/inscription', [FormationController::class, 'showInscriptionForm'])->name('inscription');
 
 Route::get('/progression', [ProgressionController::class, 'index'])->name('progression');
+
+
+Route::get('/convert-video', [VideoController::class, 'convert']);
+
+
+
+
+Route::get('/video/{filename}', function ($filename) {
+   dd($filename);
+    $path = storage_path('app/videos/' . $filename);
+
+    if (!File::exists($path)) {
+        abort(404);
+    }
+
+    $file = File::get($path);
+    $type = File::mimeType($path);
+
+    return response($file, 200)->header("Content-Type", $type);
+});

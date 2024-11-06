@@ -6,17 +6,27 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateQuizRequest extends FormRequest
 {
-    public function authorize()
+    /**
+     * Autoriser la requête.
+     */
+    public function authorize(): bool
     {
-        return true; // Autoriser la requête
+        return true; // Autoriser toutes les requêtes
     }
 
-    public function rules()
+    /**
+     * Obtenir les règles de validation.
+     */
+    public function rules(): array
     {
         return [
-            'question' => 'required|string',
-            'options' => 'required|array',
-            'correct_option' => 'required|string',
+            'titre' => 'required|string|max:255',
+            'chapitre_id' => 'required|exists:chapitres,id',
+            'questions' => 'required|array|min:1',
+            'questions.*.text' => 'required|string|max:500', // Flexibilité accrue pour le texte
+            'questions.*.type' => 'required|string|in:multiple,true_false',
+            'questions.*.options' => 'required|array|min:2',
+            'questions.*.options.*' => 'required|string|max:255',
         ];
     }
 }

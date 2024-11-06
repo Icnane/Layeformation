@@ -10,10 +10,14 @@ class CreateQuestionsTable extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('quiz_id')->constrained()->onDelete('cascade'); // Lien vers le quiz
-            $table->text('text'); // Texte de la question
-            $table->enum('type', ['multiple', 'true_false']); // Type de question (choix multiple ou vrai/faux)
+            $table->unsignedBigInteger('quizzes_id'); // Lien vers la table quiz
+            $table->string('text'); // Texte de la question
+            $table->string('type'); // Type de la question (multiple, vrai/faux)
+            $table->json('options'); // Stocke les options en JSON
             $table->timestamps();
+
+            // Déclaration de la clé étrangère
+            $table->foreign('quiz_id')->references('id')->on('quizzes')->onDelete('cascade');
         });
     }
 

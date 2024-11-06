@@ -11,22 +11,42 @@
         <div class="col-md-3">
             <div class="sidebar">
                 <h4>Mes Cours</h4>
-                @foreach ($modules as $module)
-                    <div class="course-card">
-                        <h3>{{ $module->titre }}</h3>
-                        <p>{{ $module->description }}</p>
+                <div id="mes-cours" class="section" style="display:none;">
+    <h1>Mes Cours</h1>
+    <ul id="moduleList">
+        @foreach($modules as $index => $module)
+            <li>
+                <div class="circle" id="circle{{ $index }}"></div>
+                <a href="#" class="sidebar-module" data-module-index="{{ $index }}">{{ $module->titre }}</a>
+                <ul class="chapters" id="chapters{{ $index }}">
+                    @foreach($module->chapitres as $chapitre)
+                        <li>
+                            <a href="#" class="chapter" data-module-index="{{ $index }}" data-chapter="{{ $chapitre->id }}">{{ $chapitre->titre }}</a>
+                            <div class="chapter-details">
+                                <p>Description : {{ $chapitre->description }}</p>
 
-                        <h4>Chapitres :</h4>
-                        <ul class="chapter-list">
-                        @foreach ($module->chapitres as $chapitre)
-                                <li>
-                                    <strong>Titre :</strong> {{ $chapitre->titre }}<br>
-                                    <strong>Description :</strong> {{ $chapitre->description }}
-                                </li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endforeach
+                                <!-- Affichage des vidéos associées au chapitre -->
+                                @if($chapitre->videos && $chapitre->videos->isNotEmpty())
+                                    <h4>Vidéos :</h4>
+                                    @foreach($chapitre->videos as $video)
+                                        <video controls width="320" height="240">
+                                            <source src="{{ asset('path/to/videos/' . $video->filename) }}" type="video/mp4">
+                                            Votre navigateur ne supporte pas la lecture de vidéo.
+                                        </video>
+                                    @endforeach
+                                @else
+                                    <p>Aucune vidéo disponible pour ce chapitre.</p>
+                                @endif
+
+                            </div>
+                        </li>
+                    @endforeach
+                </ul>
+            </li>
+        @endforeach
+    </ul>
+</div>
+
             </div>
         </div>
     </div>

@@ -85,23 +85,22 @@
         <br><br><br><br>
 
         <!-- Affichage des modules et chapitres -->
-     @foreach ($modules as $module)
-        <div class="course-card">
-            <h3>{{ $module->titre }}</h3>
-            <p>{{ $module->description }}</p>
+        @foreach($modules as $module)
+    @foreach($module->chapitres as $chapitre)
+        @if($chapitre->videos && $chapitre->videos->isNotEmpty())
+            <h4>Vidéos :</h4>
+            @foreach($chapitre->videos as $video)
+                <video controls width="320" height="240">
+                    <source src="{{ asset('path/to/videos/' . $video->filename) }}" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture de vidéo.
+                </video>
+            @endforeach
+        @else
+            <p>Aucune vidéo disponible pour ce chapitre.</p>
+        @endif
+    @endforeach
+@endforeach
 
-            <h4>Chapitres :</h4>
-         <ul class="chapter-list">
-            @foreach ($module->chapitres as $chapitre)
-                <li>
-                    <strong>Titre :</strong> {{ $chapitre->titre }}<br>
-                    <strong>Description :</strong> {{ $chapitre->description }}
-                </li>
-      @endforeach
-         </ul>
-        </div>
-        @endforeach
-    </div>
 
     <!-- Autres sections cachées -->
     <div class="content empty-section" id="mes-cours" style="display:none;">

@@ -12,6 +12,7 @@ class CreateQuizzesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('chapitre_id'); // Lien vers la table chapitres
             $table->string('titre'); // Titre du quiz
+            $table->json('options')->nullable(); // Champ pour les options en JSON
             $table->timestamps();
 
             // Déclaration de la clé étrangère

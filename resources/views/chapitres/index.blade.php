@@ -32,10 +32,10 @@
                     <td>{{ $chapitre->module->titre }}</td>
                     <td>
                         @if($chapitre->chemin_video)
-                        <video width="320" height="240" controls>
-                            <source src="{{ Storage::url($chapitre->chemin_video) }}" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
+                            <video width="320" height="240" controls>
+                                <source src="{{ Storage::url($chapitre->chemin_video) }}" type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture de vidéos.
+                            </video>
                             <br>
                             <a href="{{ asset('storage/' . $chapitre->chemin_video) }}" class="btn btn-secondary" download>Télécharger la vidéo</a>
                         @else
@@ -51,7 +51,6 @@
                             <button type="submit" class="btn b3">Supprimer</button>
                         </form>
                     </td>
-
                 </tr>
             @endforeach
         </tbody>

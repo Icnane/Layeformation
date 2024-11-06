@@ -38,8 +38,8 @@
                     </div>
                     <div class="options-container">
                         <label>Options</label>
-                        <input type="text" name="questions[0][options][]" class="form-control" placeholder="Option 1" required>
-                        <input type="text" name="questions[0][options][]" class="form-control" placeholder="Option 2" required>
+                        <input type="text" name="questions[]" class="form-control" placeholder="Option 1" required>
+                        <input type="text" name="questions[]" class="form-control" placeholder="Option 2" required>
                     </div>
                 </div>
             </div>

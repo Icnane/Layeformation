@@ -19,7 +19,7 @@ class ChapitreController extends Controller
         $search = $request->input('search'); // Recherche si un terme est spécifié
 
         // Recherche des chapitres selon les critères
-        $chapitres = Chapitre::query()
+        $chapitres = Chapitre::with('module') // Charger la relation module
             ->when($search, function ($query) use ($search) {
                 return $query->where('titre', 'like', '%' . $search . '%')
                     ->orWhere('description', 'like', '%' . $search . '%')
@@ -39,7 +39,6 @@ class ChapitreController extends Controller
         // Récupérer tous les modules pour les afficher dans le formulaire
         $modules = Module::all();
         return view('chapitres.create', compact('modules'));
-    
     }
 
     // Stocker un nouveau chapitre
@@ -101,7 +100,4 @@ class ChapitreController extends Controller
         $chapitre->delete();
         return redirect()->route('chapitres.index')->with('success', 'Chapitre supprimé avec succès.');
     }
-   
-    
-
 }

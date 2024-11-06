@@ -12,8 +12,8 @@ class Chapitre extends Model
     protected $fillable = [
         'titre',
         'description',
-        'chemin_video', // si vous avez ce champ
-        'module_id', // Ajoutez ceci
+        'chemin_video', 
+        'module_id', 
     ];
 
     // Définir la relation avec Module
