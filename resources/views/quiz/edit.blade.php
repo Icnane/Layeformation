@@ -27,7 +27,7 @@
             <div id="questions-container">
                 <h5>Questions du Quiz</h5>
                 @foreach($quiz->questions as $index => $question)
-                    <div class="question-block">
+                    <div class="question-block" id="question-block-{{ $index }}">
                         <div class="form-group">
                             <label for="question">Question</label>
                             <textarea name="questions[{{ $index }}][text]" class="form-control question-text" rows="2" required>{{ $question->text }}</textarea>
@@ -48,6 +48,7 @@
                     </div>
                 @endforeach
             </div>
+
             <button type="button" class="btn btn-success" id="add-question" onclick="addQuestion()">Ajouter une question</button>
             <button type="submit" class="btn btn-primary" id="submit-button" style="margin-top: 10px;">Sauvegarder le quiz</button>
         </form>
@@ -62,6 +63,7 @@
             const container = document.getElementById('questions-container');
             const newQuestionBlock = document.createElement('div');
             newQuestionBlock.className = 'question-block';
+            newQuestionBlock.id = 'question-block-' + questionIndex;
             newQuestionBlock.innerHTML = `
                 <div class="form-group">
                     <label for="question">Question</label>
@@ -83,10 +85,10 @@
             container.appendChild(newQuestionBlock);
             questionIndex++;
 
+            // Si 10 questions, cacher le bouton d'ajout et montrer le bouton de sauvegarde
             if (questionIndex === 10) {
-                document.getElementById('message').style.display = 'block';
                 document.getElementById('submit-button').style.display = 'inline-block';
-                document.getElementById('add-question').style.display = 'none'; 
+                document.getElementById('add-question').style.display = 'none';
             }
         }
     }

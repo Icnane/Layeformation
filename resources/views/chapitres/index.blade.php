@@ -20,7 +20,7 @@
                 <th>ID</th>
                 <th>Titre</th>
                 <th>Module</th>
-                <th>Vidéo</th> <!-- Nouvelle colonne pour la vidéo -->
+                <th>Vidéo</th> <!-- Colonne pour la vidéo -->
                 <th width="350px">Actions</th>
             </tr>
         </thead>
@@ -30,14 +30,17 @@
                     <td>{{ $chapitre->id }}</td>
                     <td>{{ $chapitre->titre }}</td>
                     <td>{{ $chapitre->module->titre }}</td>
-                    <td>
+
+                    <!-- <td>
                         @if($chapitre->chemin_video)
-                            <video width="320" height="240" controls>
-                                <source src="{{ Storage::url($chapitre->chemin_video) }}" type="video/mp4">
-                                Votre navigateur ne supporte pas la lecture de vidéos.
+                            <video width="150" height="80" controls preload="metadata">
+                                <source src="{{ asset('storage/'.$chapitre->chemin_video) }}" type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture vidéo.
                             </video>
                             <br>
-                            <a href="{{ asset('storage/' . $chapitre->chemin_video) }}" class="btn btn-secondary" download>Télécharger la vidéo</a>
+                            <a href="{{ asset('storage/'.$chapitre->chemin_video) }}" class="btn btn-secondary" download>
+                                Télécharger la vidéo
+                            </a>
                         @else
                             Aucune vidéo
                         @endif
@@ -49,6 +52,27 @@
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn b3">Supprimer</button>
+                        </form>
+                    </td> -->
+                    <td>
+                        @if($chapitre->chemin_video)
+                            <video width="150" height="100" controls>
+                                <source src="{{ asset('storage/'.$chapitre->chemin_video) }}" type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture de vidéos.
+                            </video>
+                            <br>
+                            <a href="{{ asset('storage/' . $chapitre->chemin_video) }}" class="btn btn-secondary" download>Télécharger</a>
+                        @else
+                            Aucune vidéo
+                        @endif
+                    </td>
+                    <td>
+                        <form action="{{ route('chapitres.destroy', $chapitre->id) }}" method="POST" style="display:inline;">
+                            <a href="{{ route('chapitres.show', $chapitre->id) }}" class="btn b1">Voir</a>
+                            <a href="{{ route('chapitres.edit', $chapitre->id) }}" class="btn b2">Modifier</a>
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn b3" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce chapitre ?')">Supprimer</button>
                         </form>
                     </td>
                 </tr>

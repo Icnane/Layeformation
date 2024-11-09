@@ -128,7 +128,7 @@ class ModuleController extends Controller
      */
     public function testRelation()
     {
-        $modules = Module::with('chapitres')->get();
+        $modules = Module::with('chapitres.videos', 'chapitres.quiz')->get();
         foreach ($modules as $module) {
             echo "Module: " . $module->titre . "<br>";
             foreach ($module->chapitres as $chapitre) {

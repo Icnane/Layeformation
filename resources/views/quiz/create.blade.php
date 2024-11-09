@@ -14,6 +14,15 @@
             </div>
 
             <div class="form-group">
+                <label for="module_id">Module associé</label>
+                <select name="module_id" id="module_id" class="form-control" required>
+                    @foreach($modules as $module)
+                        <option value="{{ $module->id }}">{{ $module->titre }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="form-group">
                 <label for="chapitre_id">Chapitre associé</label>
                 <select name="chapitre_id" id="chapitre_id" class="form-control" required>
                     @foreach($chapitres as $chapitre)
@@ -38,8 +47,8 @@
                     </div>
                     <div class="options-container">
                         <label>Options</label>
-                        <input type="text" name="questions[]" class="form-control" placeholder="Option 1" required>
-                        <input type="text" name="questions[]" class="form-control" placeholder="Option 2" required>
+                        <input type="text" name="questions[0][options][]" class="form-control" placeholder="Option 1" required>
+                        <input type="text" name="questions[0][options][]" class="form-control" placeholder="Option 2" required>
                     </div>
                 </div>
             </div>
@@ -81,19 +90,21 @@
                 </div>
             `;
             container.appendChild(newQuestionBlock);
-            questionIndex++;
 
-            // Afficher le bouton de sauvegarde si 10 questions sont atteintes
-            if (questionIndex === 10) {
+            if (questionIndex === 9) {
                 document.getElementById('message').style.display = 'block';
-                document.getElementById('submit-button').style.display = 'inline-block';
-                document.getElementById('add-question').style.display = 'none'; // Masquer le bouton d'ajout de question
+                document.getElementById('add-question').style.display = 'none';
+                document.getElementById('submit-button').style.display = 'inline';
             }
+
+            questionIndex++;
         }
     }
 
     function toggleOptions(selectElement, index) {
         const optionsContainer = selectElement.closest('.question-block').querySelector('.options-container');
+        optionsContainer.innerHTML = '';  // Vide les anciennes options
+
         if (selectElement.value === 'true_false') {
             optionsContainer.innerHTML = `
                 <label>Options</label>

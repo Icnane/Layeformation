@@ -10,6 +10,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Quiz;
 
 class ChapitreController extends Controller
 {
@@ -17,28 +18,37 @@ class ChapitreController extends Controller
     public function index(Request $request): View
     {
         $search = $request->input('search'); // Recherche si un terme est spécifié
-
-        // Recherche des chapitres selon les critères
-        $chapitres = Chapitre::with('module') // Charger la relation module
+    
+        // Recherche des modules avec leurs chapitres et vidéos, avec un critère de recherche
+        $modules = Module::with('chapitres.resources') // Charger les modules avec leurs chapitres et vidéos
             ->when($search, function ($query) use ($search) {
                 return $query->where('titre', 'like', '%' . $search . '%')
-                    ->orWhere('description', 'like', '%' . $search . '%')
-                    ->orWhere('id', 'like', '%' . $search . '%');
+                    ->orWhereHas('chapitres', function ($chapitreQuery) use ($search) {
+                        $chapitreQuery->where('titre', 'like', '%' . $search . '%')
+                            ->orWhere('description', 'like', '%' . $search . '%')
+                            ->orWhere('id', 'like', '%' . $search . '%');
+                    });
             })
             ->orderBy('created_at', 'desc')
-            ->paginate(5);
+            ->paginate(5); // Paginer les résultats
+        
+        // Récupère les chapitres avec leurs relations
+        $chapitres = Chapitre::with('module', 'quiz', 'resources')->get();
 
-        $noResults = $chapitres->isEmpty();
+        // Vérifier si aucun résultat n'a été trouvé
+        $noResults = $modules->isEmpty();
 
-        return view('chapitres.index', compact('chapitres', 'noResults'));
+        // Passe les variables à la vue
+        return view('chapitres.index', compact('modules', 'noResults', 'chapitres'));
     }
-
+    
     // Afficher le formulaire de création d'un chapitre
     public function create(): View
     {
         // Récupérer tous les modules pour les afficher dans le formulaire
         $modules = Module::all();
-        return view('chapitres.create', compact('modules'));
+        $quizzes = Quiz::all();
+        return view('chapitres.create', compact('modules', 'quizzes'));
     }
 
     // Stocker un nouveau chapitre
@@ -58,8 +68,9 @@ class ChapitreController extends Controller
     public function show(Chapitre $chapitre): View
     {
         // Charger le module associé au chapitre
-        $module = $chapitre->module; // Assurez-vous que la relation 'module' est définie dans le modèle Chapitre
-        return view('chapitres.show', compact('chapitre', 'module'));
+        $module = $chapitre->module;
+        $quizzes = Quiz::all(); // Assurez-vous que la relation 'module' est définie dans le modèle Chapitre
+        return view('chapitres.show', compact('chapitre', 'module','quizzes'));
     }
 
     // Afficher le formulaire d'édition d'un chapitre
@@ -67,7 +78,8 @@ class ChapitreController extends Controller
     {
         // Récupérer tous les modules pour les afficher dans le formulaire
         $modules = Module::all();
-        return view('chapitres.edit', compact('chapitre', 'modules'));
+        $quizzes = Quiz::all();
+        return view('chapitres.edit', compact('chapitre', 'modules','quizzes'));
     }
 
     // Mettre à jour un chapitre

@@ -14,7 +14,7 @@
         </div>
     @endif
 
-    <form action="{{ route('chapitres.update', $chapitre->id) }}" method="POST" enctype="multipart/form-data" class="form-container"> <!-- Ajout de l'enctype pour le téléchargement de fichier -->
+    <form action="{{ route('chapitres.update', $chapitre->id) }}" method="POST" enctype="multipart/form-data" class="form-container">
         @csrf
         @method('PUT')
 
@@ -37,6 +37,19 @@
             </select>
         </div>
 
+        <!-- Sélection du quiz (facultatif) -->
+        <div class="form-group">
+            <label for="quiz_id">Sélectionnez un Quiz (facultatif) :</label>
+            <select name="quiz_id" class="form-control">
+                <option value="">--Sélectionnez un quiz (optionnel)--</option>
+                @foreach($quizzes as $quiz)
+                    <option value="{{ $quiz->id }}" {{ old('quiz_id', $chapitre->quiz_id) == $quiz->id ? 'selected' : '' }}>
+                        {{ $quiz->titre }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
+
         <!-- Description du chapitre -->
         <div class="form-group">
             <label for="description">Description :</label>
@@ -45,8 +58,8 @@
 
         <!-- Téléchargement de la vidéo -->
         <div class="form-group">
-            <label for="chemin_video">Télécharger la vidéo:</label>
-            <input type="file" id="chemin_video" name="chemin_video" accept="video/*"> <!-- Champ pour télécharger la vidéo -->
+            <label for="chemin_video">Télécharger la vidéo :</label>
+            <input type="file" id="chemin_video" name="chemin_video" accept="video/*">
         </div>
 
         <!-- Bouton de mise à jour -->

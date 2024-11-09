@@ -10,13 +10,15 @@ class CreateQuizzesTable extends Migration
     {
         Schema::create('quizzes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('chapitre_id'); // Lien vers la table chapitres
+            $table->unsignedBigInteger('chapitre_id'); // Clé étrangère vers la table chapitres
+            $table->foreignId('module_id')->nullable()->constrained();// Clé étrangère vers la table modules
             $table->string('titre'); // Titre du quiz
-            $table->json('options')->nullable(); // Champ pour les options en JSON
+            $table->json('options')->nullable(); // Champ pour les options en JSON (optionnel)
             $table->timestamps();
 
-            // Déclaration de la clé étrangère
+            // Déclaration de la clé étrangère pour la relation avec chapitres
             $table->foreign('chapitre_id')->references('id')->on('chapitres')->onDelete('cascade');
+            $table->foreign('module_id')->references('id')->on('module')->onDelete('cascade');
         });
     }
 

@@ -9,10 +9,24 @@ class Option extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['text', 'question_id'];
+    // Définir les champs autorisés à la création et à la mise à jour
+    protected $fillable = ['text', 'is_correct', 'question_id'];
 
+    /**
+     * Relation avec la question.
+     * Une option appartient à une question.
+     */
     public function question()
     {
-        return $this->belongsTo(Question::class);
+        return $this->belongsTo(Question::class); // Chaque option appartient à une question
+    }
+
+    /**
+     * Option est correcte ou non.
+     * Ajout d'un attribut 'is_correct' pour déterminer si l'option est correcte.
+     */
+    public function isCorrect()
+    {
+        return $this->is_correct; // Cette fonction retourne si l'option est correcte
     }
 }

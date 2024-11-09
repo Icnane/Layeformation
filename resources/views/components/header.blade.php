@@ -41,7 +41,7 @@
 							<div class="container mt-5">
 							@vite('resources/css/styles.css')
 
-<h2>Exemple de Modal avec Bootstrap</h2>
+<!-- <h2>Exemple de Modal avec Bootstrap</h2> -->
 
 <!-- Navbar avec le bouton Connexion/Profil -->
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -300,27 +300,27 @@
         <li><a href="{{ route('contact') }}">Contact</a></li>
 
         <li class="nav-item dropdown" id="profileItem">
-    @if (Auth::check())
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-user-circle" style="font-size: 24px;"></i> <!-- Icône de profil avec taille forcée -->
-        </a>
-        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-		<li><a class="dropdown-item" href="{{ route('parcour') }}">Mon parcours</a></li>
-    <li><a class="dropdown-item" href="{{route('editprofil')}}" onclick="editProfile()">Éditer mon profil</a></li>
-    <li><a class="dropdown-item" href="#" onclick="inviteFriend()">Inviter un ami</a></li> <!-- Ajout de l'option "Inviter un ami" -->
-    <li><hr class="dropdown-divider"></li> <!-- Ligne de séparation -->
-    <li>
-        <a class="dropdown-item" href="#" onclick="logout()">Déconnexion</a>
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-            @csrf
-        </form>
-    </li>
-</ul>
-    @else
-        <a class="nav-link" href="{{ route('login') }}">Login</a>
-    @endif
-</li>
-
+            @if (Auth::check())
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-user-circle" style="font-size: 24px;"></i> 
+                    <!-- Afficher la première lettre du nom de l'utilisateur -->
+                    <span class="profile-initial">{{ strtoupper(substr(Auth::user()->name, 0, 1)) }}</span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="{{ route('parcour') }}">Mon parcours</a></li>
+                    <li><a class="dropdown-item" href="{{ route('editprofil') }}" onclick="editProfile()">Éditer mon profil</a></li>
+                    <li><a class="dropdown-item" href="{{ route('Invitation.create') }}" onclick="Invitation()">Inviter un ami</a></li> <!-- Ajout de l'option "Inviter un ami" -->
+                    <li>
+                        <a class="dropdown-item" href="#" onclick="logout()">Déconnexion</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </li>
+                </ul>
+            @else
+                <a class="nav-link" href="{{ route('login') }}">Login</a>
+            @endif
+        </li>
     </ul>
 </div>
 
@@ -329,19 +329,37 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 
 <script>
-function showProfilePage() {
-    // alert("Afficher mon parcours");
-}
+    function editProfile() {
+        // Fonction pour éditer le profil, peut être personnalisé plus tard
+        // alert("Éditer mon profil");
+    }
 
-function editProfile() {
-    // alert("Éditer mon profil");
-}
+    function Invitation() {
+        // Logique de la fonction Inviter un ami
+        // Peut-être ajouter une logique pour envoyer une invitation ici
 
-function logout() {
-    // alert("Déconnexion en cours...");
-    document.getElementById('logout-form').submit(); // Soumet le formulaire de déconnexion
-}
+        // Affichage d'un message ou redirection
+        alert("Invitation envoyée !");
+        
+        // Redirection vers la page d'invitation après l'envoi
+        window.location.href = "{{ route('Invitation.create') }}";  
+    }
+
+    function logout() {
+        // Soumettre le formulaire de déconnexion
+        document.getElementById('logout-form').submit(); // Soumet le formulaire de déconnexion
+    }
 </script>
+
+<style>
+    .profile-initial {
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+        margin-left: 5px;
+    }
+</style>
+
 
     </ul><!--/.nav -->
 </div><!-- /.navbar-collapse -->

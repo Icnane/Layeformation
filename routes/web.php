@@ -16,9 +16,10 @@ use App\Http\Controllers\ResourceController;
 use App\Http\Controllers\ProgressionController;
 use App\Http\Controllers\parcourController;
 use App\Http\Controllers\MesCoursController;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Response;
-use App\Http\Controllers\VideoController;
+use App\Http\Controllers\AnswerController;
+use App\Http\Controllers\InvitationController;
+
+
 // Routes d'authentification
 Auth::routes();
 
@@ -131,6 +132,10 @@ Route::get('/mes-certificats', function () {
     return view('partials.mes-certificats'); // Vue pour mes certificats et attestations
 })->name('mes-certificats');
 
+Route::get('/Invitation.create', function () {
+    return view('Invitation.create'); // Vue pour mes certificats et attestations
+})->name('Invitation.create');
+
 Route::get('/parcour', [ModuleController::class, 'parcour'])->name('modules.parcour');
 Route::get('/parcour', [parcourController::class, 'parcour'])->name('parcour');
 
@@ -148,6 +153,8 @@ Route::resource('resources', ResourceController::class);
 Route::get('/chapitres', [ChapitreController::class, 'index'])->name('chapitres.index');
 Route::get('/editprofil', [editprofilController::class, 'edit'])->name('editprofil');
 Route::put('/editprofil', [editprofilController::class, 'update'])->name('editprofil.update');
+Route::get('/invitation', [InvitationController::class, 'index'])->name('Invitation');
+
 use App\Http\Controllers\ParcoursController;
 use App\Models\Formation;
 
@@ -166,21 +173,19 @@ Route::get('/inscription', [FormationController::class, 'showInscriptionForm'])-
 Route::get('/progression', [ProgressionController::class, 'index'])->name('progression');
 
 
-Route::get('/convert-video', [VideoController::class, 'convert']);
+
+Route::resource('quizzes', QuizController::class);
+// web.php
+Route::get('quiz/{id}', [QuizController::class, 'show'])->name('quiz.show');
+Route::resource('answers', AnswerController::class);
+Route::get('/invitation', [InvitationController::class, 'create'])->name('Invitation.create');
+Route::post('/invitation', [InvitationController::class, 'store'])->name('Invitation.store');
+
+
+
+Route::post('/invitation', [InvitationController::class, 'store'])->name('invitation.store');
+Route::get('invitation', [InvitationController::class, 'create'])->name('Invitation.create');
 
 
 
 
-Route::get('/video/{filename}', function ($filename) {
-   dd($filename);
-    $path = storage_path('app/videos/' . $filename);
-
-    if (!File::exists($path)) {
-        abort(404);
-    }
-
-    $file = File::get($path);
-    $type = File::mimeType($path);
-
-    return response($file, 200)->header("Content-Type", $type);
-});

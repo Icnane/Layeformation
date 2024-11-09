@@ -10,19 +10,32 @@ class CreateQuestionsTable extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('quizzes_id'); // Lien vers la table quiz
-            $table->string('text'); // Texte de la question
-            $table->string('type'); // Type de la question (multiple, vrai/faux)
-            $table->json('options'); // Stocke les options en JSON
+            $table->string('text');  // Texte de la question
+            $table->enum('type', ['multiple_choice', 'true_false', 'short_answer']);  // Type de question
+            $table->unsignedBigInteger('quiz_id');  // Référence au quiz
             $table->timestamps();
-
-            // Déclaration de la clé étrangère
+    
+            // Clé étrangère vers la table des quizzes
             $table->foreign('quiz_id')->references('id')->on('quizzes')->onDelete('cascade');
+
+            // Index sur quiz_id pour de meilleures performances
+            $table->index('quiz_id');
+        });
+
+        // Création de la table des réponses
+        Schema::create('reponses', function (Blueprint $table) {
+            $table->id();  // Crée une colonne 'id' avec auto-incrémentation
+            $table->foreignId('question_id')->constrained('questions')->onDelete('cascade');  // Relation avec les questions
+            $table->text('reponse_text');  // Texte de la réponse
+            $table->boolean('is_correct');  // Indique si la réponse est correcte
+            $table->timestamps();  // Ajoute les colonnes 'created_at' et 'updated_at'
         });
     }
 
     public function down()
     {
+        // Suppression des tables dans l'ordre inverse
+        Schema::dropIfExists('reponses');
         Schema::dropIfExists('questions');
     }
 }

@@ -3,20 +3,16 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Validator;
 
 class StoreQuizRequest extends FormRequest
 {
-    /**
-     * Autoriser la requête.
-     */
     public function authorize(): bool
     {
-        return true; // Autoriser toutes les requêtes
+        // Autoriser toutes les requêtes
+        return true;
     }
 
-    /**
-     * Obtenir les règles de validation.
-     */
     public function rules(): array
     {
         return [
@@ -28,5 +24,22 @@ class StoreQuizRequest extends FormRequest
             'questions.*.options' => 'required|array|min:2',
             'questions.*.options.*' => 'required|string|max:255',
         ];
+    }
+
+    public function withValidator(Validator $validator)
+    {
+        $validator->after(function ($validator) {
+            $questions = $this->input('questions', []);
+
+            foreach ($questions as $index => $question) {
+                if ($question['type'] === 'multiple' && count($question['options']) < 4) {
+                    // Ajoute une erreur si une question à choix multiple a moins de 4 options
+                    $validator->errors()->add(
+                        "questions.$index.options",
+                        'Les questions de type multiple doivent avoir au moins 4 options.'
+                    );
+                }
+            }
+        });
     }
 }

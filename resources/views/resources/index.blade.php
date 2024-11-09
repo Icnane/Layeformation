@@ -18,7 +18,7 @@
                 <td>{{ $module->titre }}</td> <!-- Assurez-vous que 'titre' est le champ correct -->
                 <td>{{ $module->chapitres->count() }}</td> <!-- Compte le nombre de chapitres -->
                 <td>
-                <a class="btn btn-warning" href="{{ route('modules.show', $module->id) }}">Afficher</a>
+                <a class="btn b2" href="{{ route('modules.show', $module->id) }}">Afficher</a>
                  <!-- Bouton en bleu -->
                     <form action="{{ route('modules.destroy', $module->id) }}" method="POST" style="display:inline;">
                         @csrf
