@@ -164,6 +164,23 @@ public function show($id)
             if (empty($questionData['text']) || empty($questionData['type'])) {
                 return redirect()->back()->withErrors(['questions' => 'Chaque question doit avoir un texte et un type valide.']);
             }
+        
         }
+    
     }
+
+    public function getQuestions($quizId)
+    {
+        $quiz = Quiz::with('questions.options')->find($quizId);
+        return response()->json([
+            'questions' => $quiz->questions
+        ]);
+    }
+
+    public function submit(Request $request, $id)
+    {
+        // Logique pour traiter la soumission du quiz
+    }
+
 }
+   

@@ -186,6 +186,12 @@ Route::post('/invitation', [InvitationController::class, 'store'])->name('Invita
 Route::post('/invitation', [InvitationController::class, 'store'])->name('invitation.store');
 Route::get('invitation', [InvitationController::class, 'create'])->name('Invitation.create');
 
+// routes/web.php
+
+Route::get('/quizzes/{quizId}/questions', [QuizController::class, 'getQuestions']);
+
+
+Route::post('/quiz/submit/{id}', [QuizController::class, 'submit'])->name('quiz.submit');
 
 
 
